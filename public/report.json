@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T06:57:43Z",
+  "generated_at": "2026-06-29T07:51:04Z",
   "sources": [
     "cn",
     "hk",
@@ -8,8 +8,8 @@
     "us"
   ],
   "total_channels": 1564,
-  "passed": 1242,
-  "failed": 296,
+  "passed": 1241,
+  "failed": 297,
   "skipped": 25,
   "source_errors": {},
   "failures": [
@@ -449,11 +449,6 @@
       "reason": "http_403"
     },
     {
-      "name": "RTHK TV 31 (港台電視31) (1080p) [Geo-blocked]",
-      "url": "https://rthktv31-live.akamaized.net/hls/live/2036818/RTHKTV31/master.m3u8",
-      "reason": "http_403"
-    },
-    {
       "name": "RTHK TV 32 (港台電視32) (1080p) [Geo-blocked]",
       "url": "https://rthktv32-live.akamaized.net/hls/live/2036819/RTHKTV32/master.m3u8",
       "reason": "http_403"
@@ -659,11 +654,6 @@
       "reason": "invalid_hls"
     },
     {
-      "name": "Buzzr (1080p)",
-      "url": "https://buzzrota-ono.amagi.tv/playlist.m3u8",
-      "reason": "sslerror"
-    },
-    {
       "name": "CAN TV36 (1080p)",
       "url": "https://cantv.streamguys1.com/cantv/cantv36hls/playlist.m3u8",
       "reason": "http_404"
@@ -672,6 +662,11 @@
       "name": "CBS (576p)",
       "url": "https://trs1.aynaott.com/cbs/index.m3u8",
       "reason": "http_403"
+    },
+    {
+      "name": "CCX1 (1080p)",
+      "url": "http://reflect-ccx.cablecast.tv/live-9/live/stream-1/live.m3u8",
+      "reason": "connectionerror"
     },
     {
       "name": "Channel One",
@@ -744,6 +739,11 @@
       "reason": "http_404"
     },
     {
+      "name": "Disney XD (720p)",
+      "url": "http://23.237.104.106:8080/USA_DISNEY_XD/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
       "name": "Docurama (1080p)",
       "url": "https://docurama-plex-ingest.cinedigm.com/playlist.m3u8",
       "reason": "sslerror"
@@ -767,11 +767,6 @@
       "name": "Fairfield Government Access Channel 26 (Fairfield CA) (720p) [Geo-blocked]",
       "url": "https://reflect-fairfield-ca.cablecast.tv/live-8/live/live.m3u8",
       "reason": "invalid_hls"
-    },
-    {
-      "name": "Family Ties",
-      "url": "https://jmp2.uk/plu-654a4a3ef91d250008ac089b.m3u8",
-      "reason": "sslerror"
     },
     {
       "name": "Fidele TV (480p)",
@@ -817,11 +812,6 @@
       "name": "Galveston County TV (720p) [Not 24/7]",
       "url": "https://edge-f.swagit.com/live/galvestontx/smil:hd-16x9-1-a/playlist.m3u8",
       "reason": "readtimeout"
-    },
-    {
-      "name": "Game Show Central (720p)",
-      "url": "https://jmp2.uk/plu-5e54187aae660e00093561d6.m3u8",
-      "reason": "connectionerror"
     },
     {
       "name": "Glendale TV (720p) [Geo-blocked]",
@@ -1044,6 +1034,16 @@
       "reason": "http_404"
     },
     {
+      "name": "Natick Government Channel (720p)",
+      "url": "https://livestream.telvue.com/natickpegasus3/f7b44cfafd5c52223d5498196c8a2e7b.sdp/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "National Geographic HD East (720p)",
+      "url": "http://198.58.104.90:8989/natgeo/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
       "name": "NBC 8 Lima OH (WLIO-DT1) (720p) [Not 24/7]",
       "url": "https://live.field59.com/wlio/wlio1/playlist.m3u8",
       "reason": "http_404"
@@ -1056,7 +1056,7 @@
     {
       "name": "NCM Government & Politics",
       "url": "https://reflect-npa.cablecast.tv/live-8/live/live.m3u8",
-      "reason": "sslerror"
+      "reason": "invalid_hls"
     },
     {
       "name": "NCM Main Channel",
@@ -1074,13 +1074,18 @@
       "reason": "http_404"
     },
     {
-      "name": "News12 Bronx [Geo-blocked]",
-      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12XH_A1/index_new.m3u8?omap=https",
+      "name": "News12+ Connecticut (1080p) [Geo-blocked]",
+      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12PLUS_H_CT_A1/index_new.m3u8",
       "reason": "http_408"
     },
     {
-      "name": "News12 Brooklyn [Geo-blocked]",
-      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12KH_A1/index_new.m3u8?omap=https",
+      "name": "News12+ Long Island (1080p) [Geo-blocked]",
+      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12PLUS_H_LI_A1/index_new.m3u8",
+      "reason": "http_408"
+    },
+    {
+      "name": "News12 New Jersey [Geo-blocked]",
+      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12JH_CENT_A1/index_new.m3u8?omap=https",
       "reason": "http_408"
     },
     {
@@ -1104,8 +1109,8 @@
       "reason": "http_404"
     },
     {
-      "name": "Palm Beach County TV Channel 20 (Palm Beach County FL) (720p)",
-      "url": "https://pbcvideostreams1.pbc.gov/memfs/1af49f9a-6b90-4ec2-a640-7f65ceebed4a.m3u8",
+      "name": "Paramount Network (720p)",
+      "url": "http://rezofoot.tv/PARAMOUNT-CHANNEL/index.m3u8",
       "reason": "http_404"
     },
     {
@@ -1131,11 +1136,6 @@
     {
       "name": "PBS Retro (1080p) [Geo-blocked]",
       "url": "https://amg02333-pbs-amg02333c6-firetv-us-4236.playouts.now.amagi.tv/playlist.m3u8",
-      "reason": "sslerror"
-    },
-    {
-      "name": "Pluto TV Comedy",
-      "url": "https://jmp2.uk/plu-5a4d3a00ad95e4718ae8d8db.m3u8",
       "reason": "sslerror"
     },
     {
@@ -1354,6 +1354,16 @@
       "reason": "connectionerror"
     },
     {
+      "name": "Turismo HD (720p)",
+      "url": "https://live20.bozztv.com/giatvplayout7/giatv-208343/playlist.m3u8",
+      "reason": "http_502"
+    },
+    {
+      "name": "TUTV (1080p)",
+      "url": "https://livestream.telvue.com/templeuni1/f7b44cfafd5c52223d5498196c8a2e7b.sdp/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
       "name": "TV Asia (1080p)",
       "url": "https://amg00206-amg00206c1-distrotv-us-6886.playouts.now.amagi.tv/24-25-6886.m3u8",
       "reason": "sslerror"
@@ -1364,14 +1374,14 @@
       "reason": "http_403"
     },
     {
+      "name": "TV Panou (720p) [Not 24/7]",
+      "url": "http://tvpanoucom.srfms.com:1935/tvpanoucom/livestream/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
       "name": "TVS Film Noir Network (720p)",
       "url": "https://rpn.bozztv.com/trn01/gusa-TVSFilmNoir/index.m3u8",
       "reason": "invalid_hls"
-    },
-    {
-      "name": "TVS Television Network (480p)",
-      "url": "https://rpn.bozztv.com/gusa/gusa-tvstn/index.m3u8",
-      "reason": "http_404"
     },
     {
       "name": "Universal Cinema (1080p)",
@@ -1397,11 +1407,6 @@
       "name": "Valley Shore Community Television (VSCTV) (Clinton CT) (1080p)",
       "url": "https://reflect-vsctv.cablecast.tv/live-3/live/live.m3u8",
       "reason": "invalid_hls"
-    },
-    {
-      "name": "Vevo 2K (1080p)",
-      "url": "https://d1s6jz7jeei17.cloudfront.net/playlist/amg00056-vevotv-vevo2kau-samsungau/playlist.m3u8",
-      "reason": "sslerror"
     },
     {
       "name": "Victor Valley Movies (1080p) [Not 24/7]",
@@ -1451,7 +1456,7 @@
     {
       "name": "WJLP-DT2 (360p)",
       "url": "https://e3.thetvapp.to/hls/metv-toons/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "sslerror"
     },
     {
       "name": "WNJU-DT1",
