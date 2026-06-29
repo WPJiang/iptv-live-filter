@@ -76,6 +76,7 @@ def format_extinf(entry: ChannelEntry) -> str:
 
 
 UNSUPPORTED_SCHEMES = {"rtp", "udp", "rtsp"}
+DRM_OR_AUTH_MARKERS = ("/drm/", "drm=", "auth=", "authid=", "key=")
 
 
 def is_multicast_host(hostname: str | None) -> bool:
@@ -96,6 +97,9 @@ def skip_reason(entry: ChannelEntry) -> str | None:
         return "unsupported_protocol"
     if is_multicast_host(parsed.hostname):
         return "multicast_address"
+    lowered_url = entry.url.lower()
+    if any(marker in lowered_url for marker in DRM_OR_AUTH_MARKERS):
+        return "drm_or_auth_required"
     return None
 
 
@@ -151,6 +155,26 @@ def has_stream_content_type(content_type: str) -> bool:
     return any(marker in lowered for marker in STREAM_CONTENT_TYPES)
 
 
+MAX_RESPONSE_BYTES = 256 * 1024
+
+
+def read_response_sample(response, max_bytes: int = MAX_RESPONSE_BYTES) -> str:
+    chunks: list[str] = []
+    total = 0
+    for chunk in response.iter_content(chunk_size=8192, decode_unicode=True):
+        if not chunk:
+            continue
+        if isinstance(chunk, bytes):
+            text = chunk.decode("utf-8", errors="replace")
+        else:
+            text = chunk
+        total += len(text.encode("utf-8", errors="ignore"))
+        chunks.append(text)
+        if total >= max_bytes:
+            break
+    return "".join(chunks)
+
+
 def probe_entry(entry: ChannelEntry, session: requests.Session | None = None, timeout: int = 8) -> ProbeResult:
     active_session = session or requests.Session()
     try:
@@ -158,7 +182,7 @@ def probe_entry(entry: ChannelEntry, session: requests.Session | None = None, ti
             entry.url,
             timeout=timeout,
             headers={"User-Agent": USER_AGENT},
-            stream=False,
+            stream=True,
         )
     except requests.RequestException as exc:
         return ProbeResult(entry=entry, ok=False, reason=exc.__class__.__name__.lower())
@@ -167,12 +191,13 @@ def probe_entry(entry: ChannelEntry, session: requests.Session | None = None, ti
         return ProbeResult(entry=entry, ok=False, reason=f"http_{response.status_code}")
 
     content_type = response.headers.get("content-type", "")
+    sample = read_response_sample(response)
     if entry.url.lower().split("?", 1)[0].endswith(".m3u8"):
-        if looks_like_hls(response.text):
+        if looks_like_hls(sample):
             return ProbeResult(entry=entry, ok=True, reason="ok")
         return ProbeResult(entry=entry, ok=False, reason="invalid_hls")
 
-    if looks_like_hls(response.text) or has_stream_content_type(content_type):
+    if looks_like_hls(sample) or has_stream_content_type(content_type):
         return ProbeResult(entry=entry, ok=True, reason="ok")
 
     return ProbeResult(entry=entry, ok=False, reason="unsupported_content")
@@ -221,12 +246,15 @@ def write_report(
 
 
 def probe_entries(entries: list[ChannelEntry], timeout: int, workers: int) -> list[ProbeResult]:
-    results: list[ProbeResult] = []
+    results: list[ProbeResult | None] = [None] * len(entries)
     with ThreadPoolExecutor(max_workers=workers) as executor:
-        futures = [executor.submit(probe_entry, entry, None, timeout) for entry in entries]
+        futures = {
+            executor.submit(probe_entry, entry, None, timeout): index
+            for index, entry in enumerate(entries)
+        }
         for future in as_completed(futures):
-            results.append(future.result())
-    return results
+            results[futures[future]] = future.result()
+    return [result for result in results if result is not None]
 
 
 def generate_outputs(

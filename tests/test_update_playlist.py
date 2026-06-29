@@ -76,6 +76,12 @@ def test_skip_reason_rejects_non_http_urls():
     assert update_playlist.skip_reason(make_entry("not-a-url")) == "unsupported_protocol"
 
 
+def test_skip_reason_rejects_drm_or_auth_looking_urls():
+    assert update_playlist.skip_reason(make_entry("https://example.com/drm/channel.m3u8")) == "drm_or_auth_required"
+    assert update_playlist.skip_reason(make_entry("https://example.com/live.m3u8?auth=testpub")) == "drm_or_auth_required"
+    assert update_playlist.skip_reason(make_entry("https://example.com/live.m3u8?key=txiptv")) == "drm_or_auth_required"
+
+
 def test_dedupe_entries_removes_exact_name_url_duplicates_only():
     first = make_entry("https://example.com/a.m3u8", "CCTV-1")
     duplicate = make_entry("https://example.com/a.m3u8", " CCTV-1 ")
@@ -108,8 +114,16 @@ def test_write_playlist_outputs_extm3u_and_entries(tmp_path):
 class FakeResponse:
     def __init__(self, status_code=200, text="#EXTM3U\n#EXT-X-TARGETDURATION:10\n", headers=None):
         self.status_code = status_code
-        self.text = text
+        self._text = text
         self.headers = headers or {"content-type": "application/vnd.apple.mpegurl"}
+
+    @property
+    def text(self):
+        return self._text
+
+    def iter_content(self, chunk_size=8192, decode_unicode=True):
+        del chunk_size, decode_unicode
+        yield self._text
 
 
 class FakeSession:
@@ -133,6 +147,7 @@ def test_probe_entry_accepts_valid_hls_playlist():
     assert result.ok is True
     assert result.reason == "ok"
     assert session.calls[0]["timeout"] == 3
+    assert session.calls[0]["stream"] is True
     assert "Mozilla" in session.calls[0]["headers"]["User-Agent"]
 
 
@@ -229,3 +244,15 @@ def test_generate_outputs_writes_playlist_and_report_for_passing_channel(tmp_pat
     assert report["passed"] == 1
     assert report["failed"] == 0
     assert report["skipped"] == 0
+
+
+def test_probe_entries_preserves_input_order():
+    entries = [
+        make_entry("https://example.com/one.m3u8", "One"),
+        make_entry("https://example.com/two.m3u8", "Two"),
+        make_entry("https://example.com/three.m3u8", "Three"),
+    ]
+
+    results = update_playlist.probe_entries(entries, timeout=3, workers=2)
+
+    assert [result.entry.name for result in results] == ["One", "Two", "Three"]
