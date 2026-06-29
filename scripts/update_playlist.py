@@ -66,11 +66,12 @@ def parse_m3u(content: str, source: str) -> list[ChannelEntry]:
 
 def format_extinf(entry: ChannelEntry) -> str:
     parts = ["#EXTINF:-1"]
-    for key in ("tvg-id", "tvg-name", "tvg-logo", "group-title"):
+    for key in ("tvg-id", "tvg-name", "tvg-logo"):
         value = entry.attrs.get(key)
         if value:
             safe_value = sanitize_text(value).replace('"', "'")
             parts.append(f'{key}="{safe_value}"')
+    parts.append(f'group-title="{classify_group(entry)}"')
     safe_name = sanitize_text(entry.name).replace('"', "'")
     return f'{" ".join(parts)},{safe_name}'
 

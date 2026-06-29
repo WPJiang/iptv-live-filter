@@ -31,18 +31,19 @@ def test_sanitize_text_removes_control_characters_and_line_breaks():
     assert update_playlist.sanitize_text(" CCTV\x00-1\r\n综合 ") == "CCTV-1 综合"
 
 
-def test_format_extinf_preserves_metadata_and_sanitizes_name():
+def test_format_extinf_preserves_metadata_and_writes_chinese_group():
     entry = update_playlist.ChannelEntry(
-        source="cn",
-        extinf="#EXTINF:-1 tvg-id=\"CCTV1.cn\" group-title=\"China\",CCTV\x00-1",
-        attrs={"tvg-id": "CCTV1.cn", "group-title": "China"},
-        name="CCTV\x00-1",
-        url="https://example.com/cctv1.m3u8",
+        source="us",
+        extinf="#EXTINF:-1 tvg-id=\"ABNChina.us@SD\" group-title=\"Religious\",ABN China\x00",
+        attrs={"tvg-id": "ABNChina.us@SD", "group-title": "Religious"},
+        name="ABN China\x00",
+        url="https://example.com/abn.m3u8",
     )
 
     line = update_playlist.format_extinf(entry)
 
-    assert line == '#EXTINF:-1 tvg-id="CCTV1.cn" group-title="China",CCTV-1'
+    assert line == '#EXTINF:-1 tvg-id="ABNChina.us@SD" group-title="内容｜宗教",ABN China'
+    assert 'group-title="Religious"' not in line
 
 
 def make_entry(url: str, name: str = "Test") -> update_playlist.ChannelEntry:
@@ -151,7 +152,7 @@ def test_write_playlist_outputs_extm3u_and_entries(tmp_path):
 
     assert output.read_text(encoding="utf-8") == (
         "#EXTM3U\n"
-        '#EXTINF:-1 tvg-id="CCTV1.cn" group-title="China",CCTV-1\n'
+        '#EXTINF:-1 tvg-id="CCTV1.cn" group-title="内地｜中央电视台",CCTV-1\n'
         "https://example.com/cctv1.m3u8\n"
     )
 
