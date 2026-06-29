@@ -80,6 +80,8 @@ def test_skip_reason_rejects_drm_or_auth_looking_urls():
     assert update_playlist.skip_reason(make_entry("https://example.com/drm/channel.m3u8")) == "drm_or_auth_required"
     assert update_playlist.skip_reason(make_entry("https://example.com/live.m3u8?auth=testpub")) == "drm_or_auth_required"
     assert update_playlist.skip_reason(make_entry("https://example.com/live.m3u8?key=txiptv")) == "drm_or_auth_required"
+    assert update_playlist.skip_reason(make_entry("https://example.com/live.m3u8?hdnts=st=1~exp=2~acl=*~hmac=abc")) == "drm_or_auth_required"
+    assert update_playlist.skip_reason(make_entry("https://example.com/live;session=abc/index.m3u8")) == "drm_or_auth_required"
 
 
 def test_dedupe_entries_removes_exact_name_url_duplicates_only():

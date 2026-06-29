@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-29T06:44:07Z",
+  "generated_at": "2026-06-29T06:57:43Z",
   "sources": [
     "cn",
     "hk",
@@ -8,9 +8,9 @@
     "us"
   ],
   "total_channels": 1564,
-  "passed": 1238,
-  "failed": 303,
-  "skipped": 22,
+  "passed": 1242,
+  "failed": 296,
+  "skipped": 25,
   "source_errors": {},
   "failures": [
     {
@@ -604,16 +604,6 @@
       "reason": "sslerror"
     },
     {
-      "name": "Alkarma TV North America & Canada (1080p) [Not 24/7]",
-      "url": "https://5aafcc5de91f1.streamlock.net/alkarmatv.com/alkarmana1.smil/playlist.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "Almagd TV Middle East (1080p) [Not 24/7]",
-      "url": "https://597f64b67707a.streamlock.net/almagd.tv/almagd.smil/playlist.m3u8",
-      "reason": "sslerror"
-    },
-    {
       "name": "Apple Valley Channel 180",
       "url": "https://reflect-applevalley.cablecast.tv/live-3/live/live.m3u8",
       "reason": "invalid_hls"
@@ -667,6 +657,11 @@
       "name": "Bloomfield Access TV Channel 5 (480p)",
       "url": "https://reflect-batv.cablecast.tv/live-5/live/live.m3u8",
       "reason": "invalid_hls"
+    },
+    {
+      "name": "Buzzr (1080p)",
+      "url": "https://buzzrota-ono.amagi.tv/playlist.m3u8",
+      "reason": "sslerror"
     },
     {
       "name": "CAN TV36 (1080p)",
@@ -739,11 +734,6 @@
       "reason": "http_404"
     },
     {
-      "name": "CSI en Español",
-      "url": "https://jmp2.uk/plu-604928d54a4f730007ff76bc.m3u8",
-      "reason": "sslerror"
-    },
-    {
       "name": "Daystar TV Espanol (1080p)",
       "url": "https://hls-live-media-gc.cdn01.net/mpegts/232076_2222907/karlKyiKToEdHsTFUcjs9g/1776816000/master_mpegts.m3u8",
       "reason": "http_410"
@@ -751,11 +741,6 @@
     {
       "name": "Dega TV (720p) [Not 24/7]",
       "url": "https://59d39900ebfb8.streamlock.net/saintlouisltv/saintlouisltv/playlist.m3u8",
-      "reason": "http_404"
-    },
-    {
-      "name": "Disney Junior (1080i)",
-      "url": "http://23.237.104.106:8080/USA_DISNEY_JUNIOR/index.m3u8",
       "reason": "http_404"
     },
     {
@@ -782,6 +767,11 @@
       "name": "Fairfield Government Access Channel 26 (Fairfield CA) (720p) [Geo-blocked]",
       "url": "https://reflect-fairfield-ca.cablecast.tv/live-8/live/live.m3u8",
       "reason": "invalid_hls"
+    },
+    {
+      "name": "Family Ties",
+      "url": "https://jmp2.uk/plu-654a4a3ef91d250008ac089b.m3u8",
+      "reason": "sslerror"
     },
     {
       "name": "Fidele TV (480p)",
@@ -829,6 +819,11 @@
       "reason": "readtimeout"
     },
     {
+      "name": "Game Show Central (720p)",
+      "url": "https://jmp2.uk/plu-5e54187aae660e00093561d6.m3u8",
+      "reason": "connectionerror"
+    },
+    {
       "name": "Glendale TV (720p) [Geo-blocked]",
       "url": "https://reflect-gtv6-glendale.cablecast.tv/live-2/live/live.m3u8",
       "reason": "invalid_hls"
@@ -849,19 +844,9 @@
       "reason": "http_400"
     },
     {
-      "name": "GuyBai TV (1080p)",
-      "url": "https://livechannel.mdc.akamaized.net/stitch/livechannel/1342/master1400000.m3u8;session=live_stream_1342",
-      "reason": "http_404"
-    },
-    {
       "name": "Haddam Killingworth High School TV (HKTV) (1080p) [Geo-blocked]",
       "url": "https://reflect-hktv.cablecast.tv/live-3/live/live.m3u8",
       "reason": "invalid_hls"
-    },
-    {
-      "name": "HappyKids (1080p)",
-      "url": "https://dil9xdvretp0f.cloudfront.net/index.m3u8",
-      "reason": "sslerror"
     },
     {
       "name": "HarPal Geo (360p)",
@@ -949,11 +934,6 @@
       "reason": "sslerror"
     },
     {
-      "name": "KIRO-DT1 (1080p)",
-      "url": "https://cdn-ue1-prod.tsv2.amagi.tv/linear/amg00327-coxmediagroup-kirobreaking-ono/playlist.m3u8",
-      "reason": "connectionerror"
-    },
-    {
       "name": "KNSO 51.1 (1080p)",
       "url": "http://162.19.255.233:8080/play/UNbAl57p9hXZClOu56FCTRSgqaaeJfnXdNhhKhum39E/m3u8",
       "reason": "connectionerror"
@@ -977,6 +957,11 @@
       "name": "La Mega Mundial",
       "url": "https://server40.servistreaming.com:3477/stream/play.m3u8",
       "reason": "sslerror"
+    },
+    {
+      "name": "La Voz de Jesus HD (720p)",
+      "url": "https://live20.bozztv.com/giatvplayout7/giatv-208429/playlist.m3u8",
+      "reason": "http_502"
     },
     {
       "name": "Laff (576p)",
@@ -1071,7 +1056,7 @@
     {
       "name": "NCM Government & Politics",
       "url": "https://reflect-npa.cablecast.tv/live-8/live/live.m3u8",
-      "reason": "invalid_hls"
+      "reason": "sslerror"
     },
     {
       "name": "NCM Main Channel",
@@ -1089,8 +1074,13 @@
       "reason": "http_404"
     },
     {
-      "name": "News12+ Hudson Valley (1080p) [Geo-blocked]",
-      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12PLUS_H_WC_A1/index_new.m3u8",
+      "name": "News12 Bronx [Geo-blocked]",
+      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12XH_A1/index_new.m3u8?omap=https",
+      "reason": "http_408"
+    },
+    {
+      "name": "News12 Brooklyn [Geo-blocked]",
+      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12KH_A1/index_new.m3u8?omap=https",
       "reason": "http_408"
     },
     {
@@ -1124,11 +1114,6 @@
       "reason": "http_404"
     },
     {
-      "name": "PBR RidePass (720p)",
-      "url": "https://jmp2.uk/plu-60d39387706fe50007fda8e8.m3u8",
-      "reason": "connectionerror"
-    },
-    {
       "name": "PBS Honolulu HI (KHET) (1080p) [Not 24/7]",
       "url": "https://khetdt.lls.pbs.org/out/v1/7ec7903413294b72bb64f83963d8ea9b/index.m3u8",
       "reason": "invalid_hls"
@@ -1149,13 +1134,8 @@
       "reason": "sslerror"
     },
     {
-      "name": "Pluto TV Action",
-      "url": "https://jmp2.uk/plu-561d7d484dc7c8770484914a.m3u8",
-      "reason": "sslerror"
-    },
-    {
-      "name": "Pluto TV Novelas",
-      "url": "https://jmp2.uk/plu-5cf96c0222df39f1a338d163.m3u8",
+      "name": "Pluto TV Comedy",
+      "url": "https://jmp2.uk/plu-5a4d3a00ad95e4718ae8d8db.m3u8",
       "reason": "sslerror"
     },
     {
@@ -1289,11 +1269,6 @@
       "reason": "http_403"
     },
     {
-      "name": "Talkin Live Classics TV (480p)",
-      "url": "https://2-fss-1.streamhoster.com/pl_122/206338-3120682-1/playlist.m3u8",
-      "reason": "sslerror"
-    },
-    {
       "name": "Tampa Bay Communnity Network TBCN (Tampa Bay FL) (480p)",
       "url": "https://reflect-tampa-bay-community.cablecast.tv/live-16/live/live.m3u8",
       "reason": "invalid_hls"
@@ -1324,11 +1299,6 @@
       "reason": "sslerror"
     },
     {
-      "name": "The Carol Burnett Show (1080p)",
-      "url": "https://carolburnett-vizio.amagi.tv/playlist.m3u8",
-      "reason": "sslerror"
-    },
-    {
       "name": "The Hill TV (1080p) [Geo-blocked]",
       "url": "https://amg01312-cw-amg01312c15-firetv-us-3444.playouts.now.amagi.tv/playlist.m3u8",
       "reason": "sslerror"
@@ -1337,11 +1307,6 @@
       "name": "The Library Channel TV18 (360p)",
       "url": "https://reflect-memphis.cablecast.tv/live-2/live/live.m3u8",
       "reason": "invalid_hls"
-    },
-    {
-      "name": "The Now Network (480p) [Not 24/7]",
-      "url": "https://mediaprod1.nowcast.cc:5443/LiveApp/streams/anZPy7eaVWLyDMZB1697488814699.m3u8",
-      "reason": "sslerror"
     },
     {
       "name": "The Ohio Channel (WVIZ DT-2) (720p)",
@@ -1434,6 +1399,11 @@
       "reason": "invalid_hls"
     },
     {
+      "name": "Vevo 2K (1080p)",
+      "url": "https://d1s6jz7jeei17.cloudfront.net/playlist/amg00056-vevotv-vevo2kau-samsungau/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
       "name": "Victor Valley Movies (1080p) [Not 24/7]",
       "url": "https://2-fss-2.streamhoster.com/pl_138/201950-5317556-1/playlist.m3u8",
       "reason": "http_404"
@@ -1469,11 +1439,6 @@
       "reason": "http_404"
     },
     {
-      "name": "Wipeout",
-      "url": "https://jmp2.uk/plu-6909e5c3a3a4b49706b8373b.m3u8",
-      "reason": "sslerror"
-    },
-    {
       "name": "WITN 22 (Wilmington DE) (1080p) [Not 24/7]",
       "url": "https://witn.cablecast.tv/live-4/live/live.m3u8",
       "reason": "http_404"
@@ -1486,7 +1451,7 @@
     {
       "name": "WJLP-DT2 (360p)",
       "url": "https://e3.thetvapp.to/hls/metv-toons/index.m3u8",
-      "reason": "sslerror"
+      "reason": "readtimeout"
     },
     {
       "name": "WNJU-DT1",
@@ -1506,7 +1471,7 @@
     {
       "name": "WSCV-DT1",
       "url": "http://181.114.57.246:4000/play/NnnBAHA2yQc4AG82/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "WTNH-DT1 (720p)",
@@ -1639,6 +1604,21 @@
       "name": "CTS (HUA-CHI CTS) (1080p)",
       "url": "rtmp://59.124.75.138:1935/sat/tv111",
       "reason": "unsupported_protocol"
+    },
+    {
+      "name": "GMTV (1080p)",
+      "url": "https://livechannel.mdc.akamaized.net/stitch/livechannel/1341/master1400000.m3u8;session=live_stream_1341",
+      "reason": "drm_or_auth_required"
+    },
+    {
+      "name": "GuyBai TV (1080p)",
+      "url": "https://livechannel.mdc.akamaized.net/stitch/livechannel/1342/master1400000.m3u8;session=live_stream_1342",
+      "reason": "drm_or_auth_required"
+    },
+    {
+      "name": "PixL TV",
+      "url": "https://frndlymsl.akamaized.net/hls/live/2006426/pixlmsl/pixlmsl/playlist.m3u8?hdnts=st=1606053234~exp=3216054041~acl=*~hmac=208d261d9f98d76a5ac30aa2ce51751f88ee50cfc24812b7cbea8b0397489a07",
+      "reason": "drm_or_auth_required"
     }
   ]
 }

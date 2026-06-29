@@ -76,7 +76,23 @@ def format_extinf(entry: ChannelEntry) -> str:
 
 
 UNSUPPORTED_SCHEMES = {"rtp", "udp", "rtsp"}
-DRM_OR_AUTH_MARKERS = ("/drm/", "drm=", "auth=", "authid=", "key=")
+DRM_OR_AUTH_MARKERS = (
+    "/drm/",
+    ";session=",
+    "acl=",
+    "auth=",
+    "authid=",
+    "exp=",
+    "expires=",
+    "hdntl=",
+    "hdnts=",
+    "hmac=",
+    "key=",
+    "session=",
+    "signature=",
+    "sig=",
+    "token=",
+)
 
 
 def is_multicast_host(hostname: str | None) -> bool:
