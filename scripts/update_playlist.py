@@ -4,7 +4,9 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
+from ipaddress import ip_address
 import re
+from urllib.parse import urlparse
 
 ATTR_RE = re.compile(r'([A-Za-z0-9_-]+)="([^"]*)"')
 CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
@@ -65,6 +67,30 @@ def format_extinf(entry: ChannelEntry) -> str:
             parts.append(f'{key}="{safe_value}"')
     safe_name = sanitize_text(entry.name).replace('"', "'")
     return f'{" ".join(parts)},{safe_name}'
+
+
+UNSUPPORTED_SCHEMES = {"rtp", "udp", "rtsp"}
+
+
+def is_multicast_host(hostname: str | None) -> bool:
+    if not hostname:
+        return False
+    try:
+        return ip_address(hostname).is_multicast
+    except ValueError:
+        return False
+
+
+def skip_reason(entry: ChannelEntry) -> str | None:
+    parsed = urlparse(entry.url)
+    scheme = parsed.scheme.lower()
+    if scheme in UNSUPPORTED_SCHEMES:
+        return "unsupported_protocol"
+    if scheme not in {"http", "https"}:
+        return "unsupported_protocol"
+    if is_multicast_host(parsed.hostname):
+        return "multicast_address"
+    return None
 
 
 def main() -> int:
