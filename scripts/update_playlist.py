@@ -7,6 +7,7 @@ from dataclasses import dataclass
 from ipaddress import ip_address
 from pathlib import Path
 import re
+import requests
 from urllib.parse import urlparse
 
 ATTR_RE = re.compile(r'([A-Za-z0-9_-]+)="([^"]*)"')
@@ -113,6 +114,62 @@ def write_playlist(path: Path, entries: list[ChannelEntry]) -> None:
         lines.append(format_extinf(entry))
         lines.append(sanitize_text(entry.url))
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
+
+
+USER_AGENT = "Mozilla/5.0 (compatible; iptv-live-filter/1.0; +https://github.com/)"
+HLS_MARKERS = ("#EXTM3U", "#EXT-X-STREAM-INF", "#EXT-X-TARGETDURATION", ".ts", ".m4s")
+STREAM_CONTENT_TYPES = (
+    "application/vnd.apple.mpegurl",
+    "application/x-mpegurl",
+    "audio/mpegurl",
+    "video/mp2t",
+    "video/",
+    "application/octet-stream",
+)
+
+
+@dataclass(frozen=True)
+class ProbeResult:
+    entry: ChannelEntry
+    ok: bool
+    reason: str
+
+
+def looks_like_hls(text: str) -> bool:
+    sample = text[:4096]
+    return any(marker in sample for marker in HLS_MARKERS)
+
+
+def has_stream_content_type(content_type: str) -> bool:
+    lowered = content_type.lower()
+    return any(marker in lowered for marker in STREAM_CONTENT_TYPES)
+
+
+def probe_entry(entry: ChannelEntry, session: requests.Session | None = None, timeout: int = 8) -> ProbeResult:
+    active_session = session or requests.Session()
+    try:
+        response = active_session.get(
+            entry.url,
+            timeout=timeout,
+            headers={"User-Agent": USER_AGENT},
+            stream=False,
+        )
+    except requests.RequestException as exc:
+        return ProbeResult(entry=entry, ok=False, reason=exc.__class__.__name__.lower())
+
+    if response.status_code < 200 or response.status_code >= 400:
+        return ProbeResult(entry=entry, ok=False, reason=f"http_{response.status_code}")
+
+    content_type = response.headers.get("content-type", "")
+    if entry.url.lower().split("?", 1)[0].endswith(".m3u8"):
+        if looks_like_hls(response.text):
+            return ProbeResult(entry=entry, ok=True, reason="ok")
+        return ProbeResult(entry=entry, ok=False, reason="invalid_hls")
+
+    if looks_like_hls(response.text) or has_stream_content_type(content_type):
+        return ProbeResult(entry=entry, ok=True, reason="ok")
+
+    return ProbeResult(entry=entry, ok=False, reason="unsupported_content")
 
 
 def main() -> int:

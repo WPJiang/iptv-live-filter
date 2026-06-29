@@ -103,3 +103,61 @@ def test_write_playlist_outputs_extm3u_and_entries(tmp_path):
         '#EXTINF:-1 tvg-id="CCTV1.cn" group-title="China",CCTV-1\n'
         "https://example.com/cctv1.m3u8\n"
     )
+
+
+class FakeResponse:
+    def __init__(self, status_code=200, text="#EXTM3U\n#EXT-X-TARGETDURATION:10\n", headers=None):
+        self.status_code = status_code
+        self.text = text
+        self.headers = headers or {"content-type": "application/vnd.apple.mpegurl"}
+
+
+class FakeSession:
+    def __init__(self, response=None, error=None):
+        self.response = response or FakeResponse()
+        self.error = error
+        self.calls = []
+
+    def get(self, url, timeout, headers, stream):
+        self.calls.append({"url": url, "timeout": timeout, "headers": headers, "stream": stream})
+        if self.error:
+            raise self.error
+        return self.response
+
+
+def test_probe_entry_accepts_valid_hls_playlist():
+    session = FakeSession(FakeResponse(text="#EXTM3U\n#EXT-X-STREAM-INF:BANDWIDTH=1\nchild.m3u8\n"))
+
+    result = update_playlist.probe_entry(make_entry("https://example.com/live.m3u8"), session=session, timeout=3)
+
+    assert result.ok is True
+    assert result.reason == "ok"
+    assert session.calls[0]["timeout"] == 3
+    assert "Mozilla" in session.calls[0]["headers"]["User-Agent"]
+
+
+def test_probe_entry_rejects_http_error():
+    session = FakeSession(FakeResponse(status_code=404, text="not found"))
+
+    result = update_playlist.probe_entry(make_entry("https://example.com/missing.m3u8"), session=session, timeout=3)
+
+    assert result.ok is False
+    assert result.reason == "http_404"
+
+
+def test_probe_entry_rejects_invalid_hls_text():
+    session = FakeSession(FakeResponse(text="plain text", headers={"content-type": "text/plain"}))
+
+    result = update_playlist.probe_entry(make_entry("https://example.com/live.m3u8"), session=session, timeout=3)
+
+    assert result.ok is False
+    assert result.reason == "invalid_hls"
+
+
+def test_probe_entry_accepts_stream_like_non_m3u8_response():
+    session = FakeSession(FakeResponse(text="", headers={"content-type": "video/mp2t"}))
+
+    result = update_playlist.probe_entry(make_entry("https://example.com/live.ts"), session=session, timeout=3)
+
+    assert result.ok is True
+    assert result.reason == "ok"
