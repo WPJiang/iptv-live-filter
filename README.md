@@ -50,6 +50,34 @@ Replace `<github-username>` with your GitHub username.
 4. Use your GitHub Pages `live.m3u` URL.
 5. Save and refresh the playlist.
 
+## Channel Grouping
+
+The generated `group-title` labels are rewritten in Chinese for easier browsing in Televizo.
+
+Mainland China channels are grouped as:
+
+- `内地｜中央电视台`
+- `内地｜省级卫视`
+- `内地｜地方频道`
+
+Other regional groups include:
+
+- `香港`
+- `澳门`
+- `台湾`
+- `美国`
+
+Non-regional content channels are grouped under content categories such as:
+
+- `内容｜新闻`
+- `内容｜宗教`
+- `内容｜电影`
+- `内容｜体育`
+- `内容｜少儿`
+- `内容｜综合`
+
+The classifier is heuristic. Some channels may be misclassified when iptv-org channel names are ambiguous; keyword rules can be extended later.
+
 ## Manual Local Run
 
 Install dependencies:
