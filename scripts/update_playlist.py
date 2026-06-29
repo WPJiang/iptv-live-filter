@@ -3,6 +3,69 @@
 
 from __future__ import annotations
 
+from dataclasses import dataclass
+import re
+
+ATTR_RE = re.compile(r'([A-Za-z0-9_-]+)="([^"]*)"')
+CONTROL_RE = re.compile(r"[\x00-\x08\x0b\x0c\x0e-\x1f\x7f]")
+
+
+@dataclass(frozen=True)
+class ChannelEntry:
+    source: str
+    extinf: str
+    attrs: dict[str, str]
+    name: str
+    url: str
+
+
+def sanitize_text(value: str) -> str:
+    cleaned = CONTROL_RE.sub("", value)
+    cleaned = cleaned.replace("\r", " ").replace("\n", " ")
+    return " ".join(cleaned.split())
+
+
+def parse_extinf(line: str) -> tuple[dict[str, str], str]:
+    attrs = {match.group(1): sanitize_text(match.group(2)) for match in ATTR_RE.finditer(line)}
+    if "," not in line:
+        return attrs, ""
+    name = sanitize_text(line.rsplit(",", 1)[1])
+    return attrs, name
+
+
+def parse_m3u(content: str, source: str) -> list[ChannelEntry]:
+    entries: list[ChannelEntry] = []
+    lines = [line.strip() for line in content.splitlines() if line.strip()]
+    index = 0
+    while index < len(lines):
+        line = lines[index]
+        if not line.startswith("#EXTINF"):
+            index += 1
+            continue
+
+        next_index = index + 1
+        if next_index >= len(lines) or lines[next_index].startswith("#"):
+            index += 1
+            continue
+
+        url = sanitize_text(lines[next_index])
+        attrs, name = parse_extinf(line)
+        entries.append(ChannelEntry(source=source, extinf=line, attrs=attrs, name=name, url=url))
+        index = next_index + 1
+
+    return entries
+
+
+def format_extinf(entry: ChannelEntry) -> str:
+    parts = ["#EXTINF:-1"]
+    for key in ("tvg-id", "tvg-name", "tvg-logo", "group-title"):
+        value = entry.attrs.get(key)
+        if value:
+            safe_value = sanitize_text(value).replace('"', "'")
+            parts.append(f'{key}="{safe_value}"')
+    safe_name = sanitize_text(entry.name).replace('"', "'")
+    return f'{" ".join(parts)},{safe_name}'
+
 
 def main() -> int:
     return 0
