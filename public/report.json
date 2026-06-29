@@ -1,19 +1,18 @@
 {
-  "generated_at": "2026-06-29T06:28:39Z",
+  "generated_at": "2026-06-29T06:32:10Z",
   "sources": [
-    "cn"
+    "cn",
+    "hk",
+    "mo",
+    "tw",
+    "us"
   ],
-  "total_channels": 145,
-  "passed": 57,
-  "failed": 88,
-  "skipped": 0,
+  "total_channels": 1564,
+  "passed": 1253,
+  "failed": 309,
+  "skipped": 1,
   "source_errors": {},
   "failures": [
-    {
-      "name": "BRTV Kaku Childrens Channel",
-      "url": "http://223.111.191.105/downflv.brtvcloud.com/kkkkasd/winfr.m3u8",
-      "reason": "readtimeout"
-    },
     {
       "name": "BRTV 北京卫视 (1080p)",
       "url": "http://go.bkpcp.top/mg/bjws",
@@ -27,27 +26,17 @@
     {
       "name": "CCTV-13 (1080p)",
       "url": "https://cdn3.163189.xyz/163189/cctv13",
-      "reason": "readtimeout"
+      "reason": "http_521"
     },
     {
-      "name": "CCTV-12 (720p)",
-      "url": "http://74.91.26.218:82/live/cctv12hd.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "Guangzhou TV",
-      "url": "https://tencentplaybusiness.gztv.com/live/zonghes.m3u8",
-      "reason": "http_403"
+      "name": "BRTV Kaku Childrens Channel",
+      "url": "http://223.111.191.105/downflv.brtvcloud.com/kkkkasd/winfr.m3u8",
+      "reason": "connectionerror"
     },
     {
       "name": "Jiangxi Children's Channel",
       "url": "https://play-live-hls.jxtvcn.com.cn/live-city/tv_jxtv6.m3u8",
       "reason": "http_403"
-    },
-    {
-      "name": "CETV1 (576p)",
-      "url": "http://117.161.133.51:81/gitv_live/G_CETV-1/G_CETV-1.m3u8?p=GITV",
-      "reason": "readtimeout"
     },
     {
       "name": "Jiangxi City Channel",
@@ -65,19 +54,14 @@
       "reason": "http_403"
     },
     {
+      "name": "Jilin City Channel",
+      "url": "https://lsfb.avap.jilintv.cn/zqvk7vpj/channel/7e8474e6daea44ccaa5aa2300191439e/index.m3u8",
+      "reason": "http_567"
+    },
+    {
       "name": "Jiangxi Public & Agriculture Channel",
       "url": "https://play-live-hls.jxtvcn.com.cn/live-city/tv_jxtv5.m3u8",
       "reason": "http_403"
-    },
-    {
-      "name": "CETV2 (576p)",
-      "url": "http://117.161.133.51:81/gitv_live/G_CETV-2/G_CETV-2.m3u8?p=GITV",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "Jilin Movie Channel",
-      "url": "https://lsfb.avap.jilintv.cn/zqvk7vpj/channel/906341e6f19b4c4bacdc89941eb85d12/index.m3u8",
-      "reason": "http_567"
     },
     {
       "name": "Jilin Lifestyle Channel",
@@ -85,8 +69,8 @@
       "reason": "http_567"
     },
     {
-      "name": "Jilin City Channel",
-      "url": "https://lsfb.avap.jilintv.cn/zqvk7vpj/channel/7e8474e6daea44ccaa5aa2300191439e/index.m3u8",
+      "name": "Jilin Movie Channel",
+      "url": "https://lsfb.avap.jilintv.cn/zqvk7vpj/channel/906341e6f19b4c4bacdc89941eb85d12/index.m3u8",
       "reason": "http_567"
     },
     {
@@ -105,79 +89,44 @@
       "reason": "http_403"
     },
     {
-      "name": "Liangshan TV [Not 24/7]",
-      "url": "http://118.122.2.29:9999/hls/47/index.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "Nei Monggol TV 2 Mongolian Culture Channel",
-      "url": "http://1.24.190.98:10080/hls/40/index.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "Shanghai Education Television Station",
-      "url": "http://223.166.234.114:7777/tsfile/live/1033_1.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "STV City",
-      "url": "http://61.173.144.157:9901/tsfile/live/1001_1.m3u8?authid=0&key=txiptv&playlive=1",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "STV News and General",
-      "url": "http://61.173.144.157:9901/tsfile/live/1000_1.m3u8?authid=0&key=txiptv&playlive=1",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "VOA美国之音 (1080p)",
-      "url": "https://voa-ingest.akamaized.net/hls/live/2033878/tvmc08/playlist.m3u8",
-      "reason": "readtimeout"
-    },
-    {
       "name": "Xinjiang TV 1",
       "url": "https://klmysjtzb.rcsxzx.com/hls/klmy2.m3u8",
       "reason": "sslerror"
     },
     {
-      "name": "东方卫视 (2160p)",
-      "url": "http://118.81.195.79:9003/hls/23/index.m3u8",
-      "reason": "readtimeout"
+      "name": "CETV1 (576p)",
+      "url": "http://117.161.133.51:81/gitv_live/G_CETV-1/G_CETV-1.m3u8?p=GITV",
+      "reason": "connectionerror"
     },
     {
-      "name": "中国气象 (576p) [Not 24/7]",
-      "url": "http://hls.weathertv.cn/tslslive/qCFIfHB/hls/live_sd.m3u8",
-      "reason": "readtimeout"
+      "name": "CETV2 (576p)",
+      "url": "http://117.161.133.51:81/gitv_live/G_CETV-2/G_CETV-2.m3u8?p=GITV",
+      "reason": "connectionerror"
     },
     {
-      "name": "云南卫视 (1080p)",
-      "url": "https://hwapi.yunshicloud.com/8xughf/e0bx15.m3u8",
-      "reason": "readtimeout"
+      "name": "Liangshan TV [Not 24/7]",
+      "url": "http://118.122.2.29:9999/hls/47/index.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "优漫卡通 (576p)",
-      "url": "http://183.207.249.15/PLTV/4/224/3221225933/index.m3u8",
-      "reason": "readtimeout"
+      "name": "Nei Monggol TV 2 Mongolian Culture Channel",
+      "url": "http://1.24.190.98:10080/hls/40/index.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "兵团卫视 (540p) [Not 24/7]",
-      "url": "http://112.25.48.68/live/program/live/btws/1300000/mnf.m3u8",
-      "reason": "readtimeout"
+      "name": "Shanghai Education Television Station",
+      "url": "http://223.166.234.114:7777/tsfile/live/1033_1.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "动作电影 (1080p)",
-      "url": "http://39.134.19.68/dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226465/index.m3u8",
-      "reason": "readtimeout"
+      "name": "STV City",
+      "url": "http://61.173.144.157:9901/tsfile/live/1001_1.m3u8?authid=0&key=txiptv&playlive=1",
+      "reason": "connectionerror"
     },
     {
-      "name": "北京衛視 (1080p) [Geo-blocked]",
-      "url": "http://14.152.88.77/liveplay-kk.rtxapp.com/live/program/live/bjwshd/4000000/mnf.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "发现之旅 (576p)",
-      "url": "http://125.210.152.18:9090/live/FXZL_750.m3u8",
-      "reason": "readtimeout"
+      "name": "STV News and General",
+      "url": "http://61.173.144.157:9901/tsfile/live/1000_1.m3u8?authid=0&key=txiptv&playlive=1",
+      "reason": "connectionerror"
     },
     {
       "name": "四川妇女儿童 (720p) [Not 24/7]",
@@ -185,19 +134,19 @@
       "reason": "connectionerror"
     },
     {
-      "name": "吉林卫视 (2160p)",
-      "url": "http://118.81.195.79:9003/hls/34/index.m3u8",
-      "reason": "readtimeout"
+      "name": "东方卫视 (2160p)",
+      "url": "http://118.81.195.79:9003/hls/23/index.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "和政电视台",
-      "url": "http://117.156.28.119/270000001111/1110000149/index.m3u8",
-      "reason": "readtimeout"
+      "name": "中国气象 (576p) [Not 24/7]",
+      "url": "http://hls.weathertv.cn/tslslive/qCFIfHB/hls/live_sd.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "四川卫视 (576p)",
-      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225733/index.m3u8",
-      "reason": "readtimeout"
+      "name": "优漫卡通 (576p)",
+      "url": "http://183.207.249.15/PLTV/4/224/3221225933/index.m3u8",
+      "reason": "connectionerror"
     },
     {
       "name": "山东体育 (1080p) [Geo-blocked]",
@@ -210,14 +159,19 @@
       "reason": "http_403"
     },
     {
-      "name": "天津卫视 (1080p)",
-      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225698/index.m3u8",
-      "reason": "readtimeout"
+      "name": "兵团卫视 (540p) [Not 24/7]",
+      "url": "http://112.25.48.68/live/program/live/btws/1300000/mnf.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "宁夏卫视 (576p)",
-      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225726/index.m3u8",
-      "reason": "readtimeout"
+      "name": "动作电影 (1080p)",
+      "url": "http://39.134.19.68/dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226465/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "北京衛視 (1080p) [Geo-blocked]",
+      "url": "http://14.152.88.77/liveplay-kk.rtxapp.com/live/program/live/bjwshd/4000000/mnf.m3u8",
+      "reason": "connectionerror"
     },
     {
       "name": "山东少儿 (406p) [Geo-blocked]",
@@ -230,29 +184,24 @@
       "reason": "http_403"
     },
     {
-      "name": "山东综艺 (406p) [Geo-blocked]",
-      "url": "http://livealone302.iqilu.com/iqilu/zypd.m3u8",
-      "reason": "http_403"
-    },
-    {
       "name": "山东齐鲁 (1080p) [Geo-blocked]",
       "url": "http://livealone302.iqilu.com/iqilu/qlpd.m3u8",
       "reason": "http_403"
     },
     {
-      "name": "家庭影院 (1080p)",
-      "url": "http://39.134.19.153/dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226462/index.m3u8",
-      "reason": "readtimeout"
+      "name": "山东综艺 (406p) [Geo-blocked]",
+      "url": "http://livealone302.iqilu.com/iqilu/zypd.m3u8",
+      "reason": "http_403"
     },
     {
-      "name": "山东卫视 (720p)",
-      "url": "http://125.210.152.18:9090/live/SDWSHD_H265.m3u8",
-      "reason": "readtimeout"
+      "name": "发现之旅 (576p)",
+      "url": "http://125.210.152.18:9090/live/FXZL_750.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "山东卫视 (1080p)",
-      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225697/index.m3u8",
-      "reason": "readtimeout"
+      "name": "吉林卫视 (2160p)",
+      "url": "http://118.81.195.79:9003/hls/34/index.m3u8",
+      "reason": "connectionerror"
     },
     {
       "name": "康巴卫视 (720p) [Not 24/7]",
@@ -260,9 +209,14 @@
       "reason": "connectionerror"
     },
     {
-      "name": "山西卫视 (2160p)",
-      "url": "http://118.81.195.79:9003/hls/19/index.m3u8",
-      "reason": "readtimeout"
+      "name": "和政电视台",
+      "url": "http://117.156.28.119/270000001111/1110000149/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "四川卫视 (576p)",
+      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225733/index.m3u8",
+      "reason": "connectionerror"
     },
     {
       "name": "房山电视台 (576p)",
@@ -270,103 +224,93 @@
       "reason": "sslerror"
     },
     {
+      "name": "云南卫视 (1080p)",
+      "url": "https://hwapi.yunshicloud.com/8xughf/e0bx15.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "天津卫视 (1080p)",
+      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225698/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "宁夏卫视 (576p)",
+      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225726/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "家庭影院 (1080p)",
+      "url": "http://39.134.19.153/dbiptv.sn.chinamobile.com/PLTV/88888888/224/3221226462/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "山东卫视 (720p)",
+      "url": "http://125.210.152.18:9090/live/SDWSHD_H265.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "山东卫视 (1080p)",
+      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225697/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "山西卫视 (2160p)",
+      "url": "http://118.81.195.79:9003/hls/19/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
       "name": "广东卫视 (2160p)",
       "url": "http://118.81.195.79:9003/hls/26/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "广西卫视 (576p)",
       "url": "http://118.81.195.79:9003/hls/27/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "徐州經濟生活 (1080p)",
       "url": "http://223.110.245.167/ott.js.chinamobile.com/PLTV/3/224/3221225947/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "敦煌电视台 (1080p)",
       "url": "http://117.156.28.119/270000001111/1110000028/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "江苏体育 (576p)",
       "url": "http://183.207.248.71/gitv/live1/G_JSTY/G_JSTY",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "江苏公共 (576p)",
       "url": "http://183.207.248.71/gitv/live1/G_JSGG/G_JSGG",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "江苏卫视 (1080p)",
       "url": "http://39.134.24.166/dbiptv.sn.chinamobile.com/PLTV/88888890/224/3221226200/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "江苏城市 (576p)",
       "url": "http://183.207.248.71/gitv/live1/G_JSCS/G_JSCS",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "江苏影视 (576p)",
       "url": "http://223.110.243.134/PLTV/4/224/3221225937/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "江苏教育 (576p)",
       "url": "http://223.110.245.151/ott.js.chinamobile.com/PLTV/3/224/3221225923/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "江苏综艺 (576p) [Not 24/7]",
       "url": "http://183.207.248.71/gitv/live1/G_JSZY/G_JSZY",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "江西卫视 (1080p)",
-      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225705/index.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "河南卫视 (2160p)",
-      "url": "http://118.81.195.79:9003/hls/30/index.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "浙江卫视 (1080p)",
-      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225703/index.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "海南卫视 (576p)",
-      "url": "http://118.81.195.79:9003/hls/28/index.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "湖北卫视 (1080p)",
-      "url": "http://118.81.195.79:9003/hls/32/index.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "滁州市广播电视台 公共频道 (400p)",
-      "url": "http://live.cztv.cc:85/live/ggpd.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "滁州市广播电视台 新闻综合频道 (1080p)",
-      "url": "http://live.cztv.cc:85/live/xwpd.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "滁州科教 (450p)",
-      "url": "http://183.167.193.45:1935/live/cztvkj/playlist.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "萍鄉新聞綜合 (576p) [Not 24/7]",
-      "url": "http://www.pxitv.com:8099/hls-live/livepkgr/_definst_/pxitvevent/pxtv1stream.m3u8",
       "reason": "connectionerror"
     },
     {
@@ -380,24 +324,29 @@
       "reason": "http_403"
     },
     {
-      "name": "甘肃卫视 (576p)",
-      "url": "http://118.81.195.79:9003/hls/25/index.m3u8",
-      "reason": "readtimeout"
+      "name": "江西卫视 (1080p)",
+      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225705/index.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "纪实人文 (1080p)",
-      "url": "http://39.135.138.59:18890/PLTV/88888910/224/3221225655/index.m3u8",
-      "reason": "readtimeout"
+      "name": "河南卫视 (2160p)",
+      "url": "http://118.81.195.79:9003/hls/30/index.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "辽宁卫视 (1080p)",
-      "url": "http://39.134.39.37/PLTV/88888888/224/3221226209/index.m3u8",
-      "reason": "readtimeout"
+      "name": "浙江卫视 (1080p)",
+      "url": "http://39.134.115.163:8080/PLTV/88888910/224/3221225703/index.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "贵州卫视 (576p)",
-      "url": "http://183.207.248.71/gitv/live1/G_GUIZHOU/G_GUIZHOU",
-      "reason": "readtimeout"
+      "name": "海南卫视 (576p)",
+      "url": "http://118.81.195.79:9003/hls/28/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "湖北卫视 (1080p)",
+      "url": "http://118.81.195.79:9003/hls/32/index.m3u8",
+      "reason": "connectionerror"
     },
     {
       "name": "长沙女性 [Geo-blocked]",
@@ -405,13 +354,13 @@
       "reason": "http_403"
     },
     {
-      "name": "长沙政法 [Geo-blocked]",
-      "url": "http://35848.hlsplay.aodianyun.com/guangdianyun_35848/tv_channel_348.m3u8",
-      "reason": "http_403"
+      "name": "滁州市广播电视台 公共频道 (400p)",
+      "url": "http://live.cztv.cc:85/live/ggpd.m3u8",
+      "reason": "connectionerror"
     },
     {
-      "name": "长沙新闻 [Geo-blocked]",
-      "url": "http://35848.hlsplay.aodianyun.com/guangdianyun_35848/tv_channel_346.m3u8",
+      "name": "长沙政法 [Geo-blocked]",
+      "url": "http://35848.hlsplay.aodianyun.com/guangdianyun_35848/tv_channel_348.m3u8",
       "reason": "http_403"
     },
     {
@@ -420,35 +369,1201 @@
       "reason": "connectionerror"
     },
     {
+      "name": "长沙新闻 [Geo-blocked]",
+      "url": "http://35848.hlsplay.aodianyun.com/guangdianyun_35848/tv_channel_346.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "萍鄉新聞綜合 (576p) [Not 24/7]",
+      "url": "http://www.pxitv.com:8099/hls-live/livepkgr/_definst_/pxitvevent/pxtv1stream.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "滁州市广播电视台 新闻综合频道 (1080p)",
+      "url": "http://live.cztv.cc:85/live/xwpd.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "滁州科教 (450p)",
+      "url": "http://183.167.193.45:1935/live/cztvkj/playlist.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "甘肃卫视 (576p)",
+      "url": "http://118.81.195.79:9003/hls/25/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "纪实人文 (1080p)",
+      "url": "http://39.135.138.59:18890/PLTV/88888910/224/3221225655/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "贵州卫视 (576p)",
+      "url": "http://183.207.248.71/gitv/live1/G_GUIZHOU/G_GUIZHOU",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "HOY TV (1080p) [Geo-blocked]",
+      "url": "https://hoytv-live-stream.hoy.tv/ch77/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "HOY Infotainment (1080p) [Geo-blocked]",
+      "url": "https://hoytv-live-stream.hoy.tv/ch78/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "辽宁卫视 (1080p)",
+      "url": "http://39.134.39.37/PLTV/88888888/224/3221226209/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
       "name": "酒泉新闻综合 (576p)",
       "url": "http://117.156.28.119/270000001111/1110000001/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "重庆卫视 (1080p)",
       "url": "http://118.81.195.79:9003/hls/22/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "金鹰卡通 (576p)",
       "url": "http://223.110.245.145/ott.js.chinamobile.com/PLTV/3/224/3221226303/index.m3u8",
-      "reason": "readtimeout"
-    },
-    {
-      "name": "风尚购物 (1080p)",
-      "url": "http://183.207.248.71/cntv/live1/fengshanggw/fengshanggw",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
     },
     {
       "name": "高台电视台 (1080p)",
       "url": "http://117.156.28.119/270000001111/1110000146/index.m3u8",
-      "reason": "readtimeout"
+      "reason": "connectionerror"
+    },
+    {
+      "name": "风尚购物 (1080p)",
+      "url": "http://183.207.248.71/cntv/live1/fengshanggw/fengshanggw",
+      "reason": "connectionerror"
     },
     {
       "name": "黑龙江卫视 (2160p)",
       "url": "http://118.81.195.79:9003/hls/31/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "RTHK TV 33 (港台電視33) (1080p) [Geo-blocked]",
+      "url": "https://rthktv33-live.akamaized.net/hls/live/2101641/RTHKTV33/master.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "HOY International Business Channel (1080p) [Geo-blocked]",
+      "url": "https://hoytv-live-stream.hoy.tv/ch76/index-fhd.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "RTHK TV 31 (港台電視31) (1080p) [Geo-blocked]",
+      "url": "https://rthktv31-live.akamaized.net/hls/live/2036818/RTHKTV31/master.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "RTHK TV 34 (港台電視34) (1080p) [Geo-blocked]",
+      "url": "https://rthktv34-live.akamaized.net/hls/live/2101642/RTHKTV34/master.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "RTHK TV 35 (港台電視35) (1080p) [Geo-blocked]",
+      "url": "https://rthktv35-live.akamaized.net/hls/live/2101643/RTHKTV35/master.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Celestial Movies (576i)",
+      "url": "http://103.58.160.157:8278/720-CELESTIALMOVIES/playlist.m3u8",
+      "reason": "http_401"
+    },
+    {
+      "name": "RTHK TV 32 (港台電視32) (1080p) [Geo-blocked]",
+      "url": "https://rthktv32-live.akamaized.net/hls/live/2036819/RTHKTV32/master.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "凤凰中文 (720p)",
+      "url": "http://223.110.245.139/ott.js.chinamobile.com/PLTV/3/224/3221226922/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "凤凰资讯 (720p)",
+      "url": "http://223.110.245.167/ott.js.chinamobile.com/PLTV/3/224/3221226923/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "DaAi1 (大愛1) (720p)",
+      "url": "https://pulltv1.wanfudaluye.com/live/tv1.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "DaAi2 (大愛2) (720p)",
+      "url": "https://pulltv2.wanfudaluye.com/live/tv2.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "CTS News (華視新聞資訊) [Geo-blocked]",
+      "url": "http://seb.sason.top/sc/hsxw_fhd.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "耀才財經台 (576p)",
+      "url": "http://202.69.67.66:443/webcast/bshdlive-pc/playlist.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "CTi Variety (中天綜合台) (720p)",
+      "url": "http://23.237.10.66:16372",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "EBC News (東森新聞台) (1080p) [Not 24/7]",
+      "url": "http://seb.sason.top/sc/dsxw_fhd.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "EBC Financial News (東森財經新聞台) (1080p) [Not 24/7]",
+      "url": "http://seb.sason.top/sc/dscjxw_fhd.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "Indigenous TV (720p)",
+      "url": "http://streamipcf.akamaized.net/live/_definst_/smil:liveabr.smil/playlist.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "TDM Ou Mun Macau Ch. 91 (720p)",
+      "url": "http://61.244.22.4/ch1/ch1.live/playlist.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "FTV (民視) (720p) [Not 24/7]",
+      "url": "http://seb.sason.top/ptv/ftv.php?id=ms",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "SET News (三立新聞) (1080p) [Geo-blocked]",
+      "url": "http://seb.sason.top/sc/sllive_fhd.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "Canal Macau Ch. 92 (720p) [Not 24/7]",
+      "url": "https://live3.tdm.com.mo/ch2/ch2.live/playlist.m3u8",
       "reason": "readtimeout"
+    },
+    {
+      "name": "Ou-Mun Macau Satellite Ch. 96 (720p)",
+      "url": "https://live3.tdm.com.mo/ch3/ch3.live/playlist.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "TDM Entertainment Ch. 95 (720p)",
+      "url": "https://live3.tdm.com.mo/ch6/hd_ch6.live/playlist.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "Taiwan Indigenous TV (原住民電視) (720p)",
+      "url": "http://streamipcf.akamaized.net/live/_definst_/live_720/key_b1500.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "TDM Info. Macau (720p) [Not 24/7]",
+      "url": "https://live3.tdm.com.mo/ch5/info_ch5.live/playlist.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "FTV One (民視第一台) (720p) [Not 24/7]",
+      "url": "http://seb.sason.top/ptv/ftv.php?id=dy",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "TDM Sports Ch. 93 (720p)",
+      "url": "https://live3.tdm.com.mo/ch4/sport_ch4.live/playlist.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "TVBS News (TVBS新聞台) [Geo-blocked]",
+      "url": "http://seb.sason.top/sc/tvbsxw_fhd.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "台视 (720p)",
+      "url": "http://162.19.247.76:22222/live/taishi/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "ABC (720p)",
+      "url": "http://41.205.93.154/ABC/index.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "ABC 6 Indianapolis IN (WRTV) (720p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/bc9ff1c7-4dc1-4e36-9ef0-25b28c595ada/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Access Sacramento Channel 17",
+      "url": "https://reflect-access-sacramento.cablecast.tv/live-7/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "AFV en Español (720p) [Not 24/7]",
+      "url": "https://linear-46.frequency.stream/dist/plex/46/hls/master/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Arkansas PBS [Geo-blocked]",
+      "url": "https://ketsdt.lls.pbs.org/out/v1/03c094dbd7874a4a8c3fe9fb10081bdb/index.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Apple Valley Channel 180",
+      "url": "https://reflect-applevalley.cablecast.tv/live-3/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "AuroraTV (Aurora CO) (720p)",
+      "url": "https://reflect-aurora.cablecast.tv/live-8/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Ayeneh TV",
+      "url": "https://2nbyjjx7y53k-hls-live.5centscdn.com/cls040318/b0d2763968fd0bdd2dc0d44ba2abf9ce.sdp/playlist.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "B4U Movies USA (576p)",
+      "url": "http://41.223.30.230/B4UPLUS/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "BBC Kids (720p)",
+      "url": "https://dmr1h4skdal9h.cloudfront.net/playlist.m3u8",
+      "reason": "http_502"
+    },
+    {
+      "name": "BET (720p)",
+      "url": "http://41.205.93.154/BET-EN/index.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "BET Her (720p)",
+      "url": "http://41.205.93.154/BETHER/index.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "beIN Sports USA (720p)",
+      "url": "http://23.237.104.106:8080/USA_BEIN/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "Beach TV CSULB (160p) [Not 24/7]",
+      "url": "http://stream04.amp.csulb.edu:1935/Beach_TV/smil:BeachTV.smil/playlist.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "Bloomfield Access TV Channel 5 (480p)",
+      "url": "https://reflect-batv.cablecast.tv/live-5/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Bloomfield Access Government TV (480p)",
+      "url": "https://reflect-batv.cablecast.tv/live-3/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "CAN TV36 (1080p)",
+      "url": "https://cantv.streamguys1.com/cantv/cantv36hls/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "BUTV10 (Boston University) (1080p) [Not 24/7]",
+      "url": "https://cdnapisec.kaltura.com/p/2184561/sp/218456100/playManifest/entryId/1_68qxw4eu/format/applehttp/a.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "CBS (576p)",
+      "url": "https://trs1.aynaott.com/cbs/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Channel One",
+      "url": "https://pemirateshls.persiana.live/hls/stream.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Cinevault 80s (720p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/ea1ab5d1-f554-4f6b-b03f-2611fcd94257/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Cinevault Westerns (720p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/72b8dd6b-391b-401c-a3e4-03f9c29555c8/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Chino Hills City TV Channel 3/41 (360p)",
+      "url": "https://edge-f.swagit.com/live/chinohillsca/live-1-a/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "CineLife (1080p)",
+      "url": "https://magnolia-cinelife.amagi.tv/hls/amagi_hls_data_magnoliaA-cinelife-oando/CDN/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "CoastTV NBC (WRDE-LD) (720p) [Not 24/7]",
+      "url": "https://live.field59.com/wrde/wrde1/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Comedy Dynamics (1080p)",
+      "url": "https://comedydynamics-plex-ingest.cinedigm.com/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Contra Costa College TV [Geo-blocked]",
+      "url": "https://reflect-contra-costa.cablecast.tv/live-7/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Coral Gables Television (Coral Gables FL) (720p)",
+      "url": "https://cdn3.wowza.com/5/R09KQXpaMWlrRjly/coralgables/G0937_004/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Costa Mesa's Municipal Access Channel CMTV 3 (720p)",
+      "url": "https://cdn3.wowza.com/5/UWpORHhLSEs5SkJs/costamesa/G0075_002/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Concert Channel (720p)",
+      "url": "https://jmp2.uk/plu-6868152657543d1f8be4ece3.m3u8",
+      "reason": "http_500"
+    },
+    {
+      "name": "Crime360 (1080p)",
+      "url": "https://eb3933ec.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/Um9rdV9DcmltZTM2MF9ITFM/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "CSI",
+      "url": "https://jmp2.uk/plu-6525419dc52b3600083db9c3.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Daystar TV Espanol (1080p)",
+      "url": "https://hls-live-media-gc.cdn01.net/mpegts/232076_2222907/karlKyiKToEdHsTFUcjs9g/1776816000/master_mpegts.m3u8",
+      "reason": "http_410"
+    },
+    {
+      "name": "Dega TV (720p) [Not 24/7]",
+      "url": "https://59d39900ebfb8.streamlock.net/saintlouisltv/saintlouisltv/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "DC.gov Council Hearing Room 120 (Washington DC) (1080p)",
+      "url": "https://video.oct.dc.gov/out/u/97_12.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Docurama (1080p)",
+      "url": "https://docurama-plex-ingest.cinedigm.com/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Dungeon TV (480i)",
+      "url": "https://stream-us-east-1.getpublica.com/cl/260429d7p1k35skjef7n2hpgog/1280x720_2750882_1_f.m3u8?i=513_2251",
+      "reason": "http_400"
+    },
+    {
+      "name": "El Rey",
+      "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=1544",
+      "reason": "http_400"
+    },
+    {
+      "name": "Disney Channel (720p)",
+      "url": "https://cors-proxy.cooks.fyi/http://212.5.144.156:8080/disney/index.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "Fairfield Government Access Channel 26 (Fairfield CA) (720p) [Geo-blocked]",
+      "url": "https://reflect-fairfield-ca.cablecast.tv/live-8/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "ESPN Deportes (360p)",
+      "url": "http://origin.thetvapp.to/hls/espn-deportes/mono.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "Fidele TV (480p)",
+      "url": "https://59d39900ebfb8.streamlock.net/FIDELETV/FIDELETV/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Fontana Community Television (720p) [Geo-blocked]",
+      "url": "https://reflect-watchkfon-fontana.cablecast.tv/live-3/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Forever Kids (576p)",
+      "url": "https://trs1.aynaott.com/ForeverKids/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Fox Soul (1080p)",
+      "url": "https://fox-foxsoul-samsungus.amagi.tv/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Fox Business Network (576p)",
+      "url": "https://trs1.aynaott.com/foxbusiness/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Freebie TV (720p) [Not 24/7]",
+      "url": "https://d1h1d6qoy9vnra.cloudfront.net/v1/master/9d062541f2ff39b5c0f48b743c6411d25f62fc25/Freebie-Plex/187.m3u8",
+      "reason": "http_504"
+    },
+    {
+      "name": "Fernandina Beach City Meeting (Fernandina Beach FL) (720p) [Not 24/7]",
+      "url": "https://edge-f.swagit.com/live/fernandinabeachfl/live-1-a/playlist.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "FYI (720p)",
+      "url": "http://185.246.209.113/FYIHD/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Fox Sports 2 (480p)",
+      "url": "https://tvsen7.aynaott.com/foxsports2/index.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Glendale TV (720p) [Geo-blocked]",
+      "url": "https://reflect-gtv6-glendale.cablecast.tv/live-2/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Fox Deportes (1280p)",
+      "url": "https://cors-proxy.cooks.fyi/http://23.237.104.106:8080/USA_FOX_DEPORTES/index.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "Gooder Nation Channel 32 (720p) [Not 24/7]",
+      "url": "https://ssh101stream.ssh101.com/akamaissh101/ssh101/channel32/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Golden Community Television (GCO.tv) (Golden CO) (1080p)",
+      "url": "https://reflect-golden-co.cablecast.tv/live-3/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Galveston County TV (720p) [Not 24/7]",
+      "url": "https://edge-f.swagit.com/live/galvestontx/smil:hd-16x9-1-a/playlist.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "Guinness World Records (480i)",
+      "url": "https://stream.ads.ottera.tv/cl/260421d7jmp97108ighs2i413g/1280x720_2300000_0_f.m3u8?i=475_567",
+      "reason": "http_400"
+    },
+    {
+      "name": "Haddam Killingworth High School TV (HKTV) (1080p) [Geo-blocked]",
+      "url": "https://reflect-hktv.cablecast.tv/live-3/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "HarPal Geo (360p)",
+      "url": "https://jk3lz82elw79-hls-live.5centscdn.com/harPalGeo/955ad3298db330b5ee880c2c9e6f23a0.sdp/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "GuyBai TV (1080p)",
+      "url": "https://livechannel.mdc.akamaized.net/stitch/livechannel/1342/master1400000.m3u8;session=live_stream_1342",
+      "reason": "http_404"
+    },
+    {
+      "name": "Home.Made.Nation (1080p)",
+      "url": "https://3238c44f.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/Um9rdV9MaXZlbHlQbGFjZV9ITFM/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Hope4Life TV (720p)",
+      "url": "http://144.217.14.88/hls/hope4life.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Hmong TV Network (720p)",
+      "url": "https://livefta.malimarcdn.com/ftaedge00/cvabroadcasting.stream/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Hi-YAH! (1080p)",
+      "url": "https://linear-59.frequency.stream/dist/plex/59/hls/master/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "i24NEWS English USA (1080p)",
+      "url": "https://fastly.live.brightcove.com/6386790908112/eu-central-1/5377161796001/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJob3N0IjoiZXJmajYzLmVncmVzcy53YzQ3bTEiLCJhY2NvdW50X2lkIjoiNTM3NzE2MTc5NjAwMSIsImVobiI6ImZhc3RseS5saXZlLmJyaWdodGNvdmUuY29tIiwiaXNzIjoiYmxpdmUtcGxheWJhY2stc291cmNlLWFwaSIsInN1YiI6InBhdGhtYXB0b2tlbiIsImF1ZCI6WyI1Mzc3MTYxNzk2MDAxIl0sImp0aSI6IjYzODY3OTA5MDgxMTIifQ._w5c3EwfnEecDCEpDaKuVz07uuEyUb3vXvQN3svv-oU/chunklist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "IraneFarda TV (720p)",
+      "url": "https://hls.iranfarda.live/hls/stream.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Jacksonville Onslow Government Television (G10TV) (Jacksonville NC) (1080p)",
+      "url": "https://reflect-jacksonville.cablecast.tv/live-8/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Iman TV (720p)",
+      "url": "https://live.relentlessinnovations.net:1936/imantv/imantv/index.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Humraaz TV [Not 24/7]",
+      "url": "https://cdn61.liveonlineservices.com/hls/humraaz.m3u8",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "Juventud Renovada en el Espiritu Santo (720p) [Not 24/7]",
+      "url": "https://telered.live:1936/jrestv/jrestv/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Jus Hindi (1080p)",
+      "url": "http://103.154.3.101:5001/live/960.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "Jus Punjabi (1080p)",
+      "url": "http://103.154.3.101:5001/live/959.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "Jus One (1080p)",
+      "url": "http://103.154.3.101:5001/live/961.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "KBEV Spectrum Channel 6 [Beverly Hills] (1080p)",
+      "url": "https://s3-us-west-2.amazonaws.com/beverly-hills-high-school.castus-vod/live/ch1/video.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "KBRI Brighton Channel 8 (Brighton CO) (720p)",
+      "url": "https://brightonco.cablecast.tv/live-4/live/live.m3u8",
+      "reason": "http_502"
+    },
+    {
+      "name": "Kids Pang TV (1080p)",
+      "url": "https://newidco-kidspangtv-1-us.roku.wurl.tv/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "KCAT Public Media TV (1080p)",
+      "url": "https://reflect-kcat-live.cablecast.tv/live-2/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "KTIV-DT6 (404p)",
+      "url": "http://txc4-swbb-mn.fibernet-tv.com/KABY-CW-2364/index.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "KVEA-DT1",
+      "url": "http://104.238.205.28:9090/278661_.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "La Mega Mundial",
+      "url": "https://server40.servistreaming.com:3477/stream/play.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "KNSO 51.1 (1080p)",
+      "url": "http://162.19.255.233:8080/play/UNbAl57p9hXZClOu56FCTRSgqaaeJfnXdNhhKhum39E/m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "Lakewood Channel 8 (Lakewood CO) (720p)",
+      "url": "https://live8fd.lakewood.org/live-2/live/live.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "LA CityView 35 (1080p)",
+      "url": "https://reflect-losangeles.cablecast.tv/live-3/live/live.m3u8",
+      "reason": "http_500"
+    },
+    {
+      "name": "Lawndale City TV (720p)",
+      "url": "https://reflect-live-lawndale.cablecast.tv/live-4/live/live.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Laff (576p)",
+      "url": "https://trs1.aynaott.com/laff/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Leesburg Lakefront TV (Leesburg FL) (720p)",
+      "url": "https://reflect-lakefront-leesburgflorida.cablecast.tv/live-6/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "KZTV-DT1 (720p)",
+      "url": "https://content.uplynk.com/channel/d1f868588ae5476dadaeff450170a183.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Littleton 8 TV (Littleton CO) (1080p)",
+      "url": "https://ch8.littletongov.org/live-2/live/live.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Living Faith TV (540p)",
+      "url": "https://cdn-unified-hls.streamspot.com/ingest1/0b5c0f18e9/playlist.m3u8?origin=1",
+      "reason": "http_404"
+    },
+    {
+      "name": "LOL Network (1080p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/54f95462-b44d-4c99-b74b-af49467454fa/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Logos TV Estudio (720p) [Not 24/7]",
+      "url": "https://streamer1.streamhost.org/salive/logosdirectaH/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Loveland TV (Loveland CO) (1080p)",
+      "url": "https://reflect-cityofloveland-co.cablecast.tv/live-3/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Manatee Schools Television MSTV (Manatee County FL) (1080p)",
+      "url": "https://reflect-mcsb-vod.cablecast.tv/live-16/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Millbrae Community Television (720p)",
+      "url": "https://685c08ed6d81a.streamlock.net/live/mp4:MCTV_aac/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Mobile County Public Schools TV Network (MCPSS)",
+      "url": "https://5b200f5268ceb.streamlock.net/MCPSS/MCPSS247.smil/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Motor Trend (720p)",
+      "url": "http://185.246.209.113/MotorTrendHD/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Movies! (480p)",
+      "url": "https://bozztv.com/dvrfl03/hdirect/hdirect-ovair1-movies!/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "MS NOW (720p)",
+      "url": "http://41.205.93.154/MSNBC/index.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "MMC TV USA (720p)",
+      "url": "https://live.relentlessinnovations.net:1936/rspe-tv/rspe-tv/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "NBC 8 Lima OH (WLIO-DT1) (720p) [Not 24/7]",
+      "url": "https://live.field59.com/wlio/wlio1/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "NBC 5 Chicago Live News (1080p)",
+      "url": "https://d368vp0qqzvkid.cloudfront.net/11603/88889704/hls/master.m3u8?ads.xumo_channelId=88889704a&ads.xumo_ifaType=&ads.xumo_providerId=3818&ads.xumo_providerName=NBCNCHI",
+      "reason": "sslerror"
+    },
+    {
+      "name": "NBC 6 Johnstown PA (WJAC) (1080p)",
+      "url": "https://linear-698.frequency.stream/dist/stirr/698/hls/master/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "NCM Educational & Kids Channel",
+      "url": "https://reflect-npa.cablecast.tv/live-9/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "NESN (720p)",
+      "url": "http://23.237.104.106:8080/USA_NESN/index.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Newport Beach Television (720p)",
+      "url": "https://cdn3.wowza.com/5/RXJNMFI3VlVkOEFP/newportbeach/G0064_003/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "NCM Government & Politics",
+      "url": "https://reflect-npa.cablecast.tv/live-8/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "NCM Main Channel",
+      "url": "https://reflect-npa.cablecast.tv/live-6/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "News12+ New Jersey (1080p) [Geo-blocked]",
+      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12PLUS_H_NJ_A1/index_new.m3u8",
+      "reason": "http_408"
+    },
+    {
+      "name": "NEW KMOVIES (1080p)",
+      "url": "https://ads.its-newid.net/api/manifest.m3u8?ads.service_id=GB1700007PK&channel_id=newid_343&tp=samsung_tvplus",
+      "reason": "readtimeout"
+    },
+    {
+      "name": "News12 Brooklyn [Geo-blocked]",
+      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12KH_A1/index_new.m3u8?omap=https",
+      "reason": "http_408"
+    },
+    {
+      "name": "Novelisima",
+      "url": "https://stream.ads.ottera.tv/playlist.m3u8?network_id=2380",
+      "reason": "http_400"
+    },
+    {
+      "name": "NYXT (1080p)",
+      "url": "https://reflect-stream-bronxnet.cablecast.tv/live-10/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "News12+ Hudson Valley (1080p) [Geo-blocked]",
+      "url": "https://mdc.ott.alticeusa.net/live4.ott.optimum.net/live4-uploads/N12PLUS_H_WC_A1/index_new.m3u8",
+      "reason": "http_408"
+    },
+    {
+      "name": "ONTV4U (1080p)",
+      "url": "https://cdn13.crtvnoc.com/ONTV4U-on-DistroTV/index.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "P3TV [Not 24/7]",
+      "url": "https://5790d294af2dc.streamlock.net/8042/8042/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Palm Beach County TV Channel 20 (Palm Beach County FL) (720p)",
+      "url": "https://pbcvideostreams1.pbc.gov/memfs/1af49f9a-6b90-4ec2-a640-7f65ceebed4a.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Pasco TV (Pasco County FL) (480p)",
+      "url": "https://cpcdn.azureedge.net/PASCOCOFLLIVE1/PASCOCOFLLIVE1/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "PBS Honolulu HI (KHET) (1080p) [Not 24/7]",
+      "url": "https://khetdt.lls.pbs.org/out/v1/7ec7903413294b72bb64f83963d8ea9b/index.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "PBS Lincoln NE (KUON) (1080p) [Geo-blocked]",
+      "url": "https://kuondt.lls.pbs.org/out/v1/91d8b5ffc5c1453c8a621508a07749a6/index.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "PBS Retro (1080p) [Geo-blocked]",
+      "url": "https://amg02333-pbs-amg02333c6-firetv-us-4236.playouts.now.amagi.tv/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "PBS New Jersey NJ (WNJT) (1080p) [Not 24/7]",
+      "url": "https://wnjtdt.lls.pbs.org/out/v1/e62efd8d4f92403996425fc389df0ffd/index.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Poker Go (1080p)",
+      "url": "https://aegis-cloudfront-1.tubi.video/b474c2bb-b34d-4c53-a94b-c4ffe884563c/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Pomona Internet Streaming Channel (Pomona CA) (720p)",
+      "url": "https://reflect-pomona.cablecast.tv/live-1/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Popstar! TV (1080p)",
+      "url": "https://linear-10.frequency.stream/dist/stirr/10/hls/master/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Pursuit Channel (1080p)",
+      "url": "https://d2qa45tniogkj6.cloudfront.net/out/v1/30f129d3a8a8482b9efe5092cf46e601/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Poudre School District TV (PSD TV) (Fort Collins CO) (720p)",
+      "url": "https://reflect-broadcast-psdschools.cablecast.tv/live-6/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "PTL Television Network (1080p)",
+      "url": "https://storage.sardius.media/archives/-KyMV-J0vDqnClcSXs8p/events/site_1a4721d3BA/playlist.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "PVS TV",
+      "url": "https://2-fss-1.streamhoster.com/pl_122/202676-1357858-1/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Radio U TV (720p) [Not 24/7]",
+      "url": "https://1826200335.rsc.cdn77.org/1826200335/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Rakuten Viki (1080p)",
+      "url": "https://newidco-rakutenviki-1-us.roku.wurl.tv/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Radio Télé Kajou (480p) [Not 24/7]",
+      "url": "https://59d39900ebfb8.streamlock.net/RadioTelekAJOU/RadioTelekAJOU/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Real America's Voice (1080p)",
+      "url": "https://stream.weathernationtv.com/RAVStirr_poekxujeisurekugzezyg/O1/playlistSCTE35.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Radio Télé Wisdom (360p) [Not 24/7]",
+      "url": "https://59d39900ebfb8.streamlock.net/daniel/daniel/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "REELZ Famous & Infamous (1080p)",
+      "url": "https://d3serb1fmh623s.cloudfront.net/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Revry News (720p) [Not 24/7]",
+      "url": "https://linear-44.frequency.stream/dist/plex/44/hls/master/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Rocky Hill Government Access Channel 16 (480p)",
+      "url": "https://securestream9.champds.com/LIVE/RockyHillCTLIVE/RockyHillCTLIVE.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Royal Time Television (1080p)",
+      "url": "https://tixbolt.com/royaltv/index.fmp4.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "RFD-TV",
+      "url": "https://rfdtv-jw.cdn.vustreams.com/live/7cba1a3b-318a-4097-8492-374478370b91/live.isml/7cba1a3b-318a-4097-8492-374478370b91.m3u8",
+      "reason": "http_503"
+    },
+    {
+      "name": "Samuel Goldwyn Classics (1080p)",
+      "url": "https://samuelgoldwyn-classics-1-us.roku.wurl.tv/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Shop LC (1080p)",
+      "url": "https://cdn-shop-lc-01.akamaized.net/Content/DASH_DASH/Live/channel(ott)/master.mpd",
+      "reason": "unsupported_content"
+    },
+    {
+      "name": "Sada-E-Haq TV (720p)",
+      "url": "https://live.relentlessinnovations.net:1936/sadaehaq/sadaehaq/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Shalom TV (720p) [Not 24/7]",
+      "url": "https://livestreamcdn.net:444/ShalomTV/ShalomTV/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Smithsonian Channel (720p)",
+      "url": "http://185.246.209.113/SmithsonianHD/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "So... Real (720p)",
+      "url": "https://cineverse-all3-soreal-1-us.ono.wurl.tv/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Sony Canal Novelas",
+      "url": "https://a89829b8dca2471ab52ea9a57bc28a35.mediatailor.us-east-1.amazonaws.com/v1/master/0fb304b2320b25f067414d481a779b77db81760d/CanelaTV_SonyCanalNovelas/playlist.m3u8",
+      "reason": "http_504"
+    },
+    {
+      "name": "Taiwan Plus TV (1080p)",
+      "url": "https://bcovlive-a.akamaihd.net/rce33d845cb9e42dfa302c7ac345f7858/ap-northeast-1/6282251407001/playlist.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "SuperChannel Orlando (WACX-DT1) (720p)",
+      "url": "https://6305c8676ce84.streamlock.net/live/live/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Tampa Bay Communnity Network TBCN (Tampa Bay FL) (480p)",
+      "url": "https://reflect-tampa-bay-community.cablecast.tv/live-16/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Tapesh 2",
+      "url": "https://maxtvhls.wns.live/hls/stream.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "TeleMIX (720p)",
+      "url": "https://haititivi.com/haiti/telemix1/index.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "TeenNick (576p)",
+      "url": "https://trs1.aynaott.com/teennick/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "The Bob Ross Channel (1080p)",
+      "url": "https://bobross-xumous.cinedigm.com/midroll/amagi_hls_data_xumo-host-bobross-xumo/CDN/master.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Tempo Afric TV (720p)",
+      "url": "https://streamspace.live/hls/tempoafrictv/livestream.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "The Hill TV (1080p) [Geo-blocked]",
+      "url": "https://amg01312-cw-amg01312c15-firetv-us-3444.playouts.now.amagi.tv/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "The Library Channel TV18 (360p)",
+      "url": "https://reflect-memphis.cablecast.tv/live-2/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "The Ohio Channel (WVIZ DT-2) (720p)",
+      "url": "https://0888934ec1a5.us-east-1.playback.live-video.net/api/video/v1/us-east-1.289485033693.channel.Aeaac0ZpvcAZ.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "The Young Turks (TYT) (1080p) [Not 24/7]",
+      "url": "https://tyt-xumo-us.amagi.tv/hls/amagi_hls_data_tytnetwor-tyt-xumo/CDN/master.m3u8",
+      "reason": "http_500"
+    },
+    {
+      "name": "Thornton Government Access Channel 17 (Thornton CO) (1080p)",
+      "url": "https://reflect-thornton.cablecast.tv/live-4/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "The Price is Right (720p)",
+      "url": "https://jmp2.uk/plu-64c2214c2a7f2200089a0c4b.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "The Word Network (1080p)",
+      "url": "https://clouditize.piksel.tech/hls/live/2043070/ClouditizeStream1/playlist.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Tiny House Nation (1080p)",
+      "url": "https://6df6888a.wurl.com/master/f36d25e7e52f1ba8d7e56eb859c636563214f541/Um9rdV9UaW55SG91c2VOYXRpb25fSExT/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "The Southeastern Channel (540p)",
+      "url": "http://147.174.13.196/live/live.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "Torrance CitiCABLE (Torrance CA) (360p)",
+      "url": "https://cdn3.wowza.com/5/dk84U1p2UUdoMGxT/torrance/G0057_005/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "TV Asia (1080p)",
+      "url": "https://amg00206-amg00206c1-distrotv-us-6886.playouts.now.amagi.tv/24-25-6886.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Tropical Music TV (720p)",
+      "url": "https://59a564764e2b6.streamlock.net/vallenato/tropical/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Trinity Channel",
+      "url": "https://edge66.magictvbox.com/liveApple/trinity/tracks-v1a1/mono.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "TV Land (720p)",
+      "url": "http://185.246.209.113/TVLandHD/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "TUDN (1080p)",
+      "url": "http://162.19.255.233:8080/play/UNbAl57p9hXZClOu56FCTVL9TbgOeYnXUEC2UjoDBYk/m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "TVS Film Noir Network (720p)",
+      "url": "https://rpn.bozztv.com/trn01/gusa-TVSFilmNoir/index.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "TVS Television Network (480p)",
+      "url": "https://rpn.bozztv.com/gusa/gusa-tvstn/index.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "USA Network (720p)",
+      "url": "http://185.246.209.113/DISCOVERYHD/index.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "Universal Cinema (1080p)",
+      "url": "https://bantel-cdn1.iptvperu.tv:1936/btnscrtn/universalcinema/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Vallenato Internacional (720p) [Not 24/7]",
+      "url": "https://59a564764e2b6.streamlock.net/vallenato/vallenatom/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Valley Shore Community Television (VSCTV) (Clinton CT) (1080p)",
+      "url": "https://reflect-vsctv.cablecast.tv/live-3/live/live.m3u8",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "Vallejo Community Access Television (V-CAT) (Vallejo CA) (480p)",
+      "url": "https://vallejo.cablecast.tv/live-3/live/live.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Vision Global TV (720p) [Geo-blocked]",
+      "url": "https://vdopanel.jlahozconsulting.com:3407/hybrid/play.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Victor Valley Movies (1080p) [Not 24/7]",
+      "url": "https://2-fss-2.streamhoster.com/pl_138/201950-5317556-1/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Watch it KID! (480i)",
+      "url": "https://stream-us-east-1.getpublica.com/cl/260415d7g24jv4hnf3ahfafgog/318x234_424101_3_f.m3u8?i=513_2256",
+      "reason": "http_400"
+    },
+    {
+      "name": "WBRA PBS Kids (1080p)",
+      "url": "https://livestream.pbskids.org/out/v1/1e3d77b418ad4a819b3f4c80ac0373b5/est_124.m3u8",
+      "reason": "http_403"
+    },
+    {
+      "name": "WeatherNation (1080p)",
+      "url": "https://stream.weathernationtv.com/WNTVStirr_eokxldieulowixkdimn/ND1/playlistSCTE35.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "Winthrop Community Access TV (WCAT 15) (360p) [Not 24/7]",
+      "url": "https://frontdoor.wcat-tv.org/live-12/live/live.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "WITN 22 (Wilmington DE) (1080p) [Not 24/7]",
+      "url": "https://witn.cablecast.tv/live-4/live/live.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Willow (720p)",
+      "url": "https://tvsen5.aynaott.com/willowhd/index.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "WNJU-DT1",
+      "url": "http://104.238.205.28:9090/278678_.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "Wolcott Governmental TV (Wolcott CT) (720p)",
+      "url": "https://5a5c57d042315.streamlock.net/live11704001/ngrp:government_all/playlist.m3u8",
+      "reason": "http_404"
+    },
+    {
+      "name": "WJLP-DT1",
+      "url": "https://e5.thetvapp.to/hls/metv-wjlp-new-jerseynew-york/index.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "WJLP-DT2 (360p)",
+      "url": "https://e3.thetvapp.to/hls/metv-toons/index.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "WTNH-DT1 (720p)",
+      "url": "https://tkx.mp.lura.live/rest/v2/mcp/video/11135425.m3u8?anvack=pDKqMLyG9pVqMkSYRJHWu3XROjAlvR6z&eud=1iqQ+zazzEobWIhmmj6bA8STRJm4HceYQApO7QYBvy9BTps0KI7LuXGD4KK7RLtBTyO8KsbFw40vgX8hrw+xqw==",
+      "reason": "invalid_hls"
+    },
+    {
+      "name": "WTTW-DT2",
+      "url": "http://68.251.105.81:5004/auto/v11.2",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "WPIX-DT1",
+      "url": "https://e1.thetvapp.to/hls/WPIX/index.m3u8",
+      "reason": "sslerror"
+    },
+    {
+      "name": "WSCV-DT1",
+      "url": "http://181.114.57.246:4000/play/NnnBAHA2yQc4AG82/index.m3u8",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "WTTW-DT1",
+      "url": "http://68.251.105.81:5004/auto/v11.1",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "WTTW-DT3",
+      "url": "http://68.251.105.81:5004/auto/v11.3",
+      "reason": "connectionerror"
+    },
+    {
+      "name": "YTA TV",
+      "url": "https://yta.unitedteleports.tv/hls/YTA.m3u8",
+      "reason": "http_504"
     }
   ],
-  "skips": []
+  "skips": [
+    {
+      "name": "CTS (HUA-CHI CTS) (1080p)",
+      "url": "rtmp://59.124.75.138:1935/sat/tv111",
+      "reason": "unsupported_protocol"
+    }
+  ]
 }
