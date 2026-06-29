@@ -3,9 +3,13 @@
 
 from __future__ import annotations
 
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from dataclasses import dataclass
+from datetime import datetime, timezone
 from ipaddress import ip_address
 from pathlib import Path
+import argparse
+import json
 import re
 import requests
 from urllib.parse import urlparse
@@ -126,6 +130,8 @@ STREAM_CONTENT_TYPES = (
     "video/",
     "application/octet-stream",
 )
+DEFAULT_SOURCES = ["cn", "hk", "mo", "tw", "us"]
+SOURCE_URL_TEMPLATE = "https://iptv-org.github.io/iptv/countries/{source}.m3u"
 
 
 @dataclass(frozen=True)
@@ -172,8 +178,134 @@ def probe_entry(entry: ChannelEntry, session: requests.Session | None = None, ti
     return ProbeResult(entry=entry, ok=False, reason="unsupported_content")
 
 
-def main() -> int:
+def utc_now_iso() -> str:
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
+def fetch_source_playlist(source: str, timeout: int = 20) -> str:
+    url = SOURCE_URL_TEMPLATE.format(source=source)
+    response = requests.get(url, timeout=timeout, headers={"User-Agent": USER_AGENT})
+    response.raise_for_status()
+    return response.text
+
+
+def write_report(
+    path: Path,
+    sources: list[str],
+    total_channels: int,
+    passed: list[ChannelEntry],
+    failed: list[ProbeResult],
+    skipped: list[tuple[ChannelEntry, str]],
+    source_errors: dict[str, str],
+    generated_at: str,
+) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "generated_at": generated_at,
+        "sources": sources,
+        "total_channels": total_channels,
+        "passed": len(passed),
+        "failed": len(failed),
+        "skipped": len(skipped),
+        "source_errors": source_errors,
+        "failures": [
+            {"name": result.entry.name, "url": result.entry.url, "reason": result.reason}
+            for result in failed[:500]
+        ],
+        "skips": [
+            {"name": entry.name, "url": entry.url, "reason": reason}
+            for entry, reason in skipped[:500]
+        ],
+    }
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def probe_entries(entries: list[ChannelEntry], timeout: int, workers: int) -> list[ProbeResult]:
+    results: list[ProbeResult] = []
+    with ThreadPoolExecutor(max_workers=workers) as executor:
+        futures = [executor.submit(probe_entry, entry, None, timeout) for entry in entries]
+        for future in as_completed(futures):
+            results.append(future.result())
+    return results
+
+
+def generate_outputs(
+    output_dir: Path,
+    sources: list[str],
+    fetch_playlist=fetch_source_playlist,
+    probe=None,
+    timeout: int = 8,
+    workers: int = 12,
+    generated_at: str | None = None,
+) -> int:
+    generated = generated_at or utc_now_iso()
+    entries: list[ChannelEntry] = []
+    source_errors: dict[str, str] = {}
+
+    for source in sources:
+        try:
+            content = fetch_playlist(source)
+        except Exception as exc:
+            source_errors[source] = str(exc)
+            continue
+        entries.extend(parse_m3u(content, source=source))
+
+    total_channels = len(entries)
+    skipped: list[tuple[ChannelEntry, str]] = []
+    candidates: list[ChannelEntry] = []
+    for entry in entries:
+        reason = skip_reason(entry)
+        if reason:
+            skipped.append((entry, reason))
+        else:
+            candidates.append(entry)
+
+    candidates = dedupe_entries(candidates)
+    if probe is None:
+        probe_results = probe_entries(candidates, timeout=timeout, workers=workers)
+    else:
+        probe_results = [probe(entry) for entry in candidates]
+
+    passed = [result.entry for result in probe_results if result.ok]
+    failed = [result for result in probe_results if not result.ok]
+
+    report_path = output_dir / "report.json"
+    write_report(
+        report_path,
+        sources=sources,
+        total_channels=total_channels,
+        passed=passed,
+        failed=failed,
+        skipped=skipped,
+        source_errors=source_errors,
+        generated_at=generated,
+    )
+
+    if not passed:
+        return 1
+
+    write_playlist(output_dir / "live.m3u", passed)
     return 0
+
+
+def parse_args() -> argparse.Namespace:
+    parser = argparse.ArgumentParser(description="Generate filtered IPTV playlist from iptv-org.")
+    parser.add_argument("--output-dir", default="public", type=Path)
+    parser.add_argument("--sources", default=",".join(DEFAULT_SOURCES), help="Comma-separated country codes")
+    parser.add_argument("--timeout", default=8, type=int)
+    parser.add_argument("--workers", default=12, type=int)
+    return parser.parse_args()
+
+
+def main() -> int:
+    args = parse_args()
+    sources = [source.strip() for source in args.sources.split(",") if source.strip()]
+    return generate_outputs(
+        output_dir=args.output_dir,
+        sources=sources,
+        timeout=args.timeout,
+        workers=args.workers,
+    )
 
 
 if __name__ == "__main__":

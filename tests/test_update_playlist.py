@@ -161,3 +161,71 @@ def test_probe_entry_accepts_stream_like_non_m3u8_response():
 
     assert result.ok is True
     assert result.reason == "ok"
+
+
+def test_write_report_outputs_consistent_counts(tmp_path):
+    passed = [make_entry("https://example.com/pass.m3u8", "Pass")]
+    failed = [update_playlist.ProbeResult(make_entry("https://example.com/fail.m3u8", "Fail"), False, "timeout")]
+    skipped = [(make_entry("udp://239.1.1.1:1234", "Skip"), "unsupported_protocol")]
+    source_errors = {"hk": "HTTP 500"}
+    output = tmp_path / "report.json"
+
+    update_playlist.write_report(
+        output,
+        sources=["cn", "hk"],
+        total_channels=3,
+        passed=passed,
+        failed=failed,
+        skipped=skipped,
+        source_errors=source_errors,
+        generated_at="2026-06-29T22:10:00Z",
+    )
+
+    data = __import__("json").loads(output.read_text(encoding="utf-8"))
+    assert data["generated_at"] == "2026-06-29T22:10:00Z"
+    assert data["sources"] == ["cn", "hk"]
+    assert data["total_channels"] == 3
+    assert data["passed"] == 1
+    assert data["failed"] == 1
+    assert data["skipped"] == 1
+    assert data["source_errors"] == {"hk": "HTTP 500"}
+    assert data["failures"][0]["name"] == "Fail"
+    assert data["failures"][0]["reason"] == "timeout"
+    assert data["skips"][0]["reason"] == "unsupported_protocol"
+
+
+def test_generate_outputs_returns_nonzero_when_no_channels_pass(tmp_path):
+    def fake_fetch(source):
+        return "#EXTM3U\n#EXTINF:-1,Only UDP\nudp://239.1.1.1:1234\n"
+
+    exit_code = update_playlist.generate_outputs(
+        output_dir=tmp_path,
+        sources=["cn"],
+        fetch_playlist=fake_fetch,
+        probe=lambda entry: update_playlist.ProbeResult(entry, False, "not_called"),
+        generated_at="2026-06-29T22:10:00Z",
+    )
+
+    assert exit_code == 1
+    assert (tmp_path / "report.json").exists()
+    assert not (tmp_path / "live.m3u").exists()
+
+
+def test_generate_outputs_writes_playlist_and_report_for_passing_channel(tmp_path):
+    def fake_fetch(source):
+        return "#EXTM3U\n#EXTINF:-1 group-title=\"China\",CCTV-1\nhttps://example.com/cctv1.m3u8\n"
+
+    exit_code = update_playlist.generate_outputs(
+        output_dir=tmp_path,
+        sources=["cn"],
+        fetch_playlist=fake_fetch,
+        probe=lambda entry: update_playlist.ProbeResult(entry, True, "ok"),
+        generated_at="2026-06-29T22:10:00Z",
+    )
+
+    assert exit_code == 0
+    assert "CCTV-1" in (tmp_path / "live.m3u").read_text(encoding="utf-8")
+    report = __import__("json").loads((tmp_path / "report.json").read_text(encoding="utf-8"))
+    assert report["passed"] == 1
+    assert report["failed"] == 0
+    assert report["skipped"] == 0
