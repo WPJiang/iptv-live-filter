@@ -152,6 +152,169 @@ STREAM_CONTENT_TYPES = (
 )
 DEFAULT_SOURCES = ["cn", "hk", "mo", "tw", "us"]
 SOURCE_URL_TEMPLATE = "https://iptv-org.github.io/iptv/countries/{source}.m3u"
+GROUP_MAINLAND_CENTRAL = "内地｜中央电视台"
+GROUP_MAINLAND_PROVINCIAL = "内地｜省级卫视"
+GROUP_MAINLAND_LOCAL = "内地｜地方频道"
+GROUP_HONG_KONG = "香港"
+GROUP_MACAU = "澳门"
+GROUP_TAIWAN = "台湾"
+GROUP_UNITED_STATES = "美国"
+GROUP_CONTENT_GENERAL = "内容｜综合"
+
+CENTRAL_TV_KEYWORDS = (
+    "cctv",
+    "cgtn",
+    "cctv+",
+    "cctv plus",
+    "cetv",
+    "china education television",
+)
+
+PROVINCIAL_KEYWORDS = (
+    "beijing",
+    "brtv",
+    "北京",
+    "shanghai",
+    "上海",
+    "tianjin",
+    "天津",
+    "chongqing",
+    "重庆",
+    "hebei",
+    "河北",
+    "shanxi",
+    "山西",
+    "nei monggol",
+    "inner mongolia",
+    "内蒙古",
+    "liaoning",
+    "辽宁",
+    "jilin",
+    "吉林",
+    "heilongjiang",
+    "黑龙江",
+    "jiangsu",
+    "江苏",
+    "zhejiang",
+    "浙江",
+    "anhui",
+    "安徽",
+    "fujian",
+    "福建",
+    "jiangxi",
+    "江西",
+    "shandong",
+    "山东",
+    "henan",
+    "河南",
+    "hubei",
+    "湖北",
+    "hunan",
+    "湖南",
+    "guangdong",
+    "广东",
+    "guangxi",
+    "广西",
+    "hainan",
+    "海南",
+    "sichuan",
+    "四川",
+    "guizhou",
+    "贵州",
+    "yunnan",
+    "云南",
+    "xizang",
+    "tibet",
+    "西藏",
+    "shaanxi",
+    "陕西",
+    "gansu",
+    "甘肃",
+    "qinghai",
+    "青海",
+    "ningxia",
+    "宁夏",
+    "xinjiang",
+    "新疆",
+    "shenzhen",
+    "深圳",
+)
+
+PROVINCIAL_TV_MARKERS = (" tv", "satellite", "卫视")
+
+CONTENT_GROUP_MAP = {
+    "news": "内容｜新闻",
+    "religious": "内容｜宗教",
+    "movies": "内容｜电影",
+    "sports": "内容｜体育",
+    "kids": "内容｜少儿",
+    "music": "内容｜音乐",
+    "documentary": "内容｜纪录",
+    "education": "内容｜教育",
+    "business": "内容｜财经",
+    "lifestyle": "内容｜生活",
+    "entertainment": "内容｜娱乐",
+    "culture": "内容｜文化",
+    "outdoor": "内容｜户外",
+    "cooking": "内容｜美食",
+    "travel": "内容｜旅游",
+    "general": GROUP_CONTENT_GENERAL,
+    "undefined": GROUP_CONTENT_GENERAL,
+}
+
+
+def combined_entry_text(entry: ChannelEntry) -> str:
+    return " ".join(
+        sanitize_text(value).lower()
+        for value in (entry.name, entry.attrs.get("tvg-id", ""))
+        if value
+    )
+
+
+def content_group(entry: ChannelEntry) -> str | None:
+    raw_group = entry.attrs.get("group-title", "")
+    for part in raw_group.split(";"):
+        mapped = CONTENT_GROUP_MAP.get(sanitize_text(part).lower())
+        if mapped:
+            return mapped
+    return None
+
+
+def is_central_tv(entry: ChannelEntry) -> bool:
+    text = combined_entry_text(entry)
+    return any(keyword in text for keyword in CENTRAL_TV_KEYWORDS)
+
+
+def is_provincial_satellite_tv(entry: ChannelEntry) -> bool:
+    text = combined_entry_text(entry)
+    has_region = any(keyword in text for keyword in PROVINCIAL_KEYWORDS)
+    has_marker = any(marker in text for marker in PROVINCIAL_TV_MARKERS)
+    return has_region and has_marker
+
+
+def classify_group(entry: ChannelEntry) -> str:
+    if entry.source == "cn":
+        if is_central_tv(entry):
+            return GROUP_MAINLAND_CENTRAL
+        if is_provincial_satellite_tv(entry):
+            return GROUP_MAINLAND_PROVINCIAL
+        return GROUP_MAINLAND_LOCAL
+
+    if entry.source == "us":
+        mapped = content_group(entry)
+        if mapped:
+            return mapped
+
+    if entry.source == "hk":
+        return GROUP_HONG_KONG
+    if entry.source == "mo":
+        return GROUP_MACAU
+    if entry.source == "tw":
+        return GROUP_TAIWAN
+    if entry.source == "us":
+        return GROUP_UNITED_STATES
+
+    return content_group(entry) or GROUP_CONTENT_GENERAL
 
 
 @dataclass(frozen=True)

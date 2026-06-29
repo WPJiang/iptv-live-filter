@@ -55,6 +55,49 @@ def make_entry(url: str, name: str = "Test") -> update_playlist.ChannelEntry:
     )
 
 
+def make_entry_with_attrs(source: str, name: str, attrs: dict[str, str] | None = None) -> update_playlist.ChannelEntry:
+    attrs = attrs or {}
+    return update_playlist.ChannelEntry(
+        source=source,
+        extinf=f"#EXTINF:-1,{name}",
+        attrs=attrs,
+        name=name,
+        url="https://example.com/live.m3u8",
+    )
+
+
+def test_classify_group_mainland_central_tv():
+    assert update_playlist.classify_group(make_entry_with_attrs("cn", "CCTV-1 (1080p)")) == "内地｜中央电视台"
+    assert update_playlist.classify_group(make_entry_with_attrs("cn", "CGTN Documentary")) == "内地｜中央电视台"
+    assert update_playlist.classify_group(make_entry_with_attrs("cn", "CETV1")) == "内地｜中央电视台"
+
+
+def test_classify_group_mainland_provincial_satellite_tv():
+    assert update_playlist.classify_group(make_entry_with_attrs("cn", "Hunan TV")) == "内地｜省级卫视"
+    assert update_playlist.classify_group(make_entry_with_attrs("cn", "Shenzhen Satellite TV")) == "内地｜省级卫视"
+    assert update_playlist.classify_group(make_entry_with_attrs("cn", "BRTV 北京卫视")) == "内地｜省级卫视"
+
+
+def test_classify_group_mainland_local_channels():
+    assert update_playlist.classify_group(make_entry_with_attrs("cn", "Harbin Movie Channel")) == "内地｜地方频道"
+    assert update_playlist.classify_group(make_entry_with_attrs("cn", "Guangzhou TV")) == "内地｜地方频道"
+    assert update_playlist.classify_group(make_entry_with_attrs("cn", "Unknown Mainland Channel")) == "内地｜地方频道"
+
+
+def test_classify_group_region_sources():
+    assert update_playlist.classify_group(make_entry_with_attrs("hk", "RTHK TV 31")) == "香港"
+    assert update_playlist.classify_group(make_entry_with_attrs("mo", "TDM Macau")) == "澳门"
+    assert update_playlist.classify_group(make_entry_with_attrs("tw", "Taiwan News")) == "台湾"
+    assert update_playlist.classify_group(make_entry_with_attrs("us", "Local US Channel")) == "美国"
+
+
+def test_classify_group_content_categories():
+    assert update_playlist.classify_group(make_entry_with_attrs("us", "ABN China", {"group-title": "Religious"})) == "内容｜宗教"
+    assert update_playlist.classify_group(make_entry_with_attrs("us", "VOA Chinese", {"group-title": "News"})) == "内容｜新闻"
+    assert update_playlist.classify_group(make_entry_with_attrs("us", "Outdoor Education", {"group-title": "Education;Outdoor"})) == "内容｜教育"
+    assert update_playlist.classify_group(make_entry_with_attrs("us", "Unknown", {"group-title": "Undefined"})) == "内容｜综合"
+
+
 def test_skip_reason_rejects_unsupported_protocols():
     assert update_playlist.skip_reason(make_entry("rtp://239.3.1.1:8000")) == "unsupported_protocol"
     assert update_playlist.skip_reason(make_entry("udp://239.3.1.1:8000")) == "unsupported_protocol"
