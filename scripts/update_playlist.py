@@ -5,6 +5,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 from ipaddress import ip_address
+from pathlib import Path
 import re
 from urllib.parse import urlparse
 
@@ -91,6 +92,27 @@ def skip_reason(entry: ChannelEntry) -> str | None:
     if is_multicast_host(parsed.hostname):
         return "multicast_address"
     return None
+
+
+def dedupe_entries(entries: list[ChannelEntry]) -> list[ChannelEntry]:
+    seen: set[tuple[str, str]] = set()
+    result: list[ChannelEntry] = []
+    for entry in entries:
+        key = (sanitize_text(entry.name).casefold(), sanitize_text(entry.url))
+        if key in seen:
+            continue
+        seen.add(key)
+        result.append(entry)
+    return result
+
+
+def write_playlist(path: Path, entries: list[ChannelEntry]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    lines = ["#EXTM3U"]
+    for entry in entries:
+        lines.append(format_extinf(entry))
+        lines.append(sanitize_text(entry.url))
+    path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
 def main() -> int:

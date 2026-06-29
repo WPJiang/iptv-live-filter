@@ -74,3 +74,32 @@ def test_skip_reason_allows_public_http_and_https():
 def test_skip_reason_rejects_non_http_urls():
     assert update_playlist.skip_reason(make_entry("ftp://example.com/live")) == "unsupported_protocol"
     assert update_playlist.skip_reason(make_entry("not-a-url")) == "unsupported_protocol"
+
+
+def test_dedupe_entries_removes_exact_name_url_duplicates_only():
+    first = make_entry("https://example.com/a.m3u8", "CCTV-1")
+    duplicate = make_entry("https://example.com/a.m3u8", " CCTV-1 ")
+    alternate = make_entry("https://example.com/b.m3u8", "CCTV-1")
+
+    result = update_playlist.dedupe_entries([first, duplicate, alternate])
+
+    assert result == [first, alternate]
+
+
+def test_write_playlist_outputs_extm3u_and_entries(tmp_path):
+    entry = update_playlist.ChannelEntry(
+        source="cn",
+        extinf="#EXTINF:-1 tvg-id=\"CCTV1.cn\" group-title=\"China\",CCTV-1",
+        attrs={"tvg-id": "CCTV1.cn", "group-title": "China"},
+        name="CCTV-1",
+        url="https://example.com/cctv1.m3u8",
+    )
+    output = tmp_path / "live.m3u"
+
+    update_playlist.write_playlist(output, [entry])
+
+    assert output.read_text(encoding="utf-8") == (
+        "#EXTM3U\n"
+        '#EXTINF:-1 tvg-id="CCTV1.cn" group-title="China",CCTV-1\n'
+        "https://example.com/cctv1.m3u8\n"
+    )
